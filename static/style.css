@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+}
+
+/* filepath: c:\KNOU_HJH\softwareContest\softwareContest\static\style.css */
+.blink {
+    font-weight: bold;
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
