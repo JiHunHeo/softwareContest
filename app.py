@@ -14,10 +14,11 @@ def home():
         <title>경진대회</title>
         <link rel="stylesheet" href="/static/style.css">
         <script src="/static/script.js" defer></script>
-        <link rel="icon" href="/static/favicon.ico" type="image/x-icon"> <!-- 파비콘 추가 -->
+        <link rel="icon" href="/static/favicon.png" type="image/png"> <!-- 파비콘 추가 -->
     </head>
     <body>
         <h1>우선 배포를 위해 코드를 수정하였습니다 !</h1>
+        <h1>과제 제출 퐈이팅입니다 !!!</h1>
         <h1>학우 여러분 반갑습니다!</h1>
         <h1>팀장입니다 !</h1>
         <h1>박민희입니다 !</h1>
