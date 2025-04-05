@@ -14,6 +14,7 @@ def home():
         <title>경진대회</title>
         <link rel="stylesheet" href="/static/style.css">
         <script src="/static/script.js" defer></script>
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon"> <!-- 파비콘 추가 -->
     </head>
     <body>
         <h1>우선 배포를 위해 코드를 수정하였습니다 !</h1>
@@ -32,4 +33,4 @@ def home():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # Railway에서 제공하는 PORT 환경 변수 사용
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port)
