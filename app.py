@@ -25,6 +25,7 @@ def home():
         <h1>강기동입니다 !</h1>
         <h1>김태형입니다 !</h1>
         <h1>김남영입니다 !</h1>
+        <h1>25년 4월 7일 기준 깃헙 작업자 명단 ^^</h1>
         <h1 id="blinking-text" class="blink">경진대회 준비에 박차를 가해봅시다!</h1>
         <button onclick="stopBlinking()">반짝임 멈추기</button>
         <button onclick="startBlinking()">다시 반짝이게</button>
