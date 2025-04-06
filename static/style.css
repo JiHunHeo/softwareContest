@@ -1,12 +1,13 @@
-/* 전체 배경색 */
+/* 전체 배경색 및 최소 너비 설정 */
 body {
     text-align: center;
     background-color: #e8f5e9; /* 연한 초록색 */
     margin: 0;
     font-family: Arial, sans-serif;
+    min-width: 320px; /* 최소 너비 설정 */
+    overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
-/* filepath: c:\KNOU_HJH\softwareContest\softwareContest\static\style.css */
 .blink {
     font-weight: bold;
     animation: blink-animation 1s steps(2, start) infinite;
@@ -21,11 +22,81 @@ body {
 /* section 스타일 */
 section {
     max-width: 800px; /* 최대 너비 */
-    margin: 50px auto; /* 화면 가운데 정렬 */
+    margin: 20px auto; /* 화면 가운데 정렬 */
     padding: 20px;
     background-color: white; /* 섹션 배경 흰색 */
     border-radius: 10px; /* 둥근 모서리 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 네비게이션 스타일 */
+nav {
+    margin-top: 20px;
+    text-align: center; /* 버튼 가운데 정렬 */
+}
+
+/* 꽃잎 애니메이션 */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1; /* 시작 시 완전히 보임 */
+    }
+    80% {
+        opacity: 1; /* 80% 진행될 때까지 완전히 보임 */
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0; /* 화면 하단에서 서서히 사라짐 */
+    }
+}
+
+.petal {
+    position: absolute;
+    top: -100px;
+    width: 30px;
+    height: 30px;
+    background-image: url('/static/petal.png'); /* 꽃잎 이미지 */
+    background-size: cover;
+    animation: fall 5s linear infinite;
+    opacity: 0;
+}
+
+/* 꽃잎 위치 랜덤화 */
+.petal:nth-child(1) {
+    left: 10%;
+    animation-duration: 6s;
+}
+.petal:nth-child(2) {
+    left: 20%;
+    animation-duration: 4s;
+}
+.petal:nth-child(3) {
+    left: 30%;
+    animation-duration: 5s;
+}
+.petal:nth-child(4) {
+    left: 40%;
+    animation-duration: 7s;
+}
+.petal:nth-child(5) {
+    left: 50%;
+    animation-duration: 6s;
+}
+.petal:nth-child(6) {
+    left: 60%;
+    animation-duration: 4.5s;
+}
+.petal:nth-child(7) {
+    left: 70%;
+    animation-duration: 5.5s;
+}
+.petal:nth-child(8) {
+    left: 80%;
+    animation-duration: 6.5s;
+}
+.petal:nth-child(9) {
+    left: 90%;
+    animation-duration: 5s;
 }
 
 /* h2 스타일 */
