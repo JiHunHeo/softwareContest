@@ -13,3 +13,19 @@ body {
         visibility: hidden;
     }
 }
+
+/* 버튼 스타일 */
+button {
+    background-color: #007bff; /* 파란색 배경 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 버튼 크기 조정 */
+    font-size: 1.2em; /* 글자 크기 (텍스트 크기와 비슷하게) */
+    border-radius: 5px; /* 둥근 모서리 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+}
+
+/* 버튼 호버 효과 */
+button:hover {
+    background-color: #0056b3; /* 어두운 파란색으로 변경 */
+}
