@@ -10,12 +10,11 @@
     </head>
     <body>
         <header>
-            <h1>공통 헤더</h1>
-            <nav><a href="/">메인 페이지</a> | <a href="/about">다른 페이지</a></nav>
+            <nav>
+                <button onclick="location.href='/'">메인 페이지</button>
+                <button onclick="location.href='/about'">다른 페이지</button>
+            </nav>
         </header>
         <main>{% block content %}{% endblock %}</main>
-        <footer>
-            <p>공통 푸터</p>
-        </footer>
     </body>
 </html>
