@@ -1,5 +1,9 @@
+/* 전체 배경색 */
 body {
     text-align: center;
+    background-color: #e8f5e9; /* 연한 초록색 */
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 /* filepath: c:\KNOU_HJH\softwareContest\softwareContest\static\style.css */
@@ -12,6 +16,23 @@ body {
     to {
         visibility: hidden;
     }
+}
+
+/* section 스타일 */
+section {
+    max-width: 800px; /* 최대 너비 */
+    margin: 50px auto; /* 화면 가운데 정렬 */
+    padding: 20px;
+    background-color: white; /* 섹션 배경 흰색 */
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* h2 스타일 */
+h2 {
+    color: #333; /* 텍스트 색상 */
+    font-size: 1.5em; /* 글자 크기 */
+    margin: 10px 0;
 }
 
 /* 버튼 스타일 */
@@ -28,4 +49,20 @@ button {
 /* 버튼 호버 효과 */
 button:hover {
     background-color: #0056b3; /* 어두운 파란색으로 변경 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    section {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.2em; /* 작은 화면에서 글자 크기 조정 */
+    }
+
+    button {
+        font-size: 1em; /* 버튼 크기 조정 */
+        padding: 8px 16px;
+    }
 }
