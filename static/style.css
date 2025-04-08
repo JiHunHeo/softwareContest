@@ -35,6 +35,21 @@ nav {
     text-align: center; /* 버튼 가운데 정렬 */
 }
 
+nav button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px; /* 버튼 간격 */
+}
+
+nav button:hover {
+    background-color: #0056b3; /* 호버 시 색상 변경 */
+}
+
 /* 꽃잎 애니메이션 */
 @keyframes fall {
     0% {
@@ -120,6 +135,48 @@ button {
 /* 버튼 호버 효과 */
 button:hover {
     background-color: #0056b3; /* 어두운 파란색으로 변경 */
+}
+
+/* 리스트 스타일 */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+li strong {
+    color: #007bff;
+}
+
+li small {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* 페이지네이션 스타일 */
+.pagination a,
+.pagination strong {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1em;
+}
+
+.pagination strong {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.pagination span {
+    margin: 0 5px;
+    color: #666;
 }
 
 /* 반응형 디자인 */
