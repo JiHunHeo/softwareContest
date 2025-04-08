@@ -1,0 +1,282 @@
+commit accd045360b2efd1942b69ce52097f64dbb77b93
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 23:38:46 2025 +0900
+
+    Railway test commit
+
+commit 71fe8581bec69be3f42ad0a172484e9e05e9a002
+Merge: f769fc6 438a6e9
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Mon Apr 7 14:56:48 2025 +0900
+
+    Merge pull request #13 from JiHunHeo/GidgTest
+    
+    Gidg test
+
+commit 438a6e958061be080dde06e72567518aca09f0b0
+Author: Gidg0428 <agsm01283@gmail.com>
+Date:   Mon Apr 7 14:38:24 2025 +0900
+
+    branch test commit'
+
+commit cad7359e0ab516ca79f28de5d598a805aba39e43
+Author: Gidg0428 <agsm01283@gmail.com>
+Date:   Mon Apr 7 14:34:32 2025 +0900
+
+    branch test commit
+
+commit f769fc6aa107e30920a7ebfe7bc51d07211ed31f
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 01:12:20 2025 +0900
+
+    Change favicon.png
+
+commit 187ceea51c96cc2a49f7366c0d0c51ea4c1a1f04
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 01:10:40 2025 +0900
+
+    Modify UI and add petal effect
+
+commit b55e022be7a79f980778fb9e20f371fe3a9d4bd4
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 00:59:46 2025 +0900
+
+    Modify UI for all
+
+commit 76cc953d280a1f96bba633ec8bdd297f2b362ee3
+Merge: 798020f 936d77d
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Mon Apr 7 00:54:49 2025 +0900
+
+    Merge pull request #12 from JiHunHeo/PMTest
+    
+    Modify UI
+
+commit 936d77d2f435c870929e9e6d7d3a81a4cf807df5
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 00:54:08 2025 +0900
+
+    Modify UI
+
+commit 798020feae59df2c56a4f2978681c91db5ca66ae
+Merge: 21f4b20 dfcecba
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Mon Apr 7 00:48:36 2025 +0900
+
+    Merge pull request #11 from JiHunHeo/PMTest
+    
+    Error handle commit
+
+commit dfcecbac1097dd44bf917b0999915b533a68677b
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 00:47:55 2025 +0900
+
+    Error handle commit
+
+commit 21f4b20a8dcd6fe191b819dee1a062e05707c0fd
+Merge: 4f34b5f de37dd4
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Mon Apr 7 00:41:51 2025 +0900
+
+    Merge pull request #10 from JiHunHeo/PMTest
+    
+    PM push code add new page
+
+commit de37dd4a5d73f5e2cb09126b8b1f5f57080b1686
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 00:40:08 2025 +0900
+
+    PM push code add new page
+
+commit 4f34b5f1a71efe735b81bf9b0af8f5e696decbd8
+Merge: babf063 e51b140
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Mon Apr 7 00:29:41 2025 +0900
+
+    Merge pull request #9 from JiHunHeo/PMTest
+    
+    branch test commit
+
+commit e51b140b02e80c6cb9dde30deab540e6e9a79b72
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 00:28:32 2025 +0900
+
+    branch test commit
+
+commit babf063743ff4aa6e5b93bc9a26fde6900566b64
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Mon Apr 7 00:26:32 2025 +0900
+
+    PM test commit
+
+commit 5a43d5a9f808f8e5f3d9648846872a5374481d0d
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Sat Apr 5 20:04:00 2025 +0900
+
+    Modify app.py for favicon.png
+
+commit 6b18c13870c7152784d5835096d3278e84b3ae44
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Sat Apr 5 20:02:21 2025 +0900
+
+    Add favicon
+
+commit 734eb925649b1028671f19726462f20911044bb1
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Sat Apr 5 19:45:06 2025 +0900
+
+    Modify Procfile and requirements.txt for RailWay
+
+commit 2f2e96893888b2310a85038e7f6744d5f646b7a0
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Sat Apr 5 19:39:04 2025 +0900
+
+    Add Procfile and requirements.txt and remote app.py for Railway test
+
+commit 5d1da6c7c3d73531cdd9401c70797b3ad0ae5306
+Merge: ebae453 0f5976d
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Sat Apr 5 08:27:20 2025 +0900
+
+    Merge pull request #8 from JiHunHeo/JiHunHeo-patch-1
+    
+    Delete index.html
+
+commit 0f5976dadfe467935667b41ed1837e9a8a94b9a9
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Sat Apr 5 08:27:04 2025 +0900
+
+    Delete index.html
+    
+    Delete unused files
+
+commit ebae4532d5fc7f9792772c53746478771bbac79a
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Fri Apr 4 17:08:02 2025 +0900
+
+    Update for master branch
+    
+    PM Commit
+
+commit adb1d0cb6773f8232ed7c6cee34a820fb99dcffa
+Merge: 20b6209 53b950c
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Fri Apr 4 16:55:33 2025 +0900
+
+    Merge pull request #7 from JiHunHeo/namyoung_test
+    
+    merge 되는지 확인용 커밋
+
+commit 53b950c588554a089d97fd933bb9e77a637db4ed
+Author: namuyongsa <namyoung1464@gmail.com>
+Date:   Fri Apr 4 16:36:06 2025 +0900
+
+    merge 되는지 확인용 커밋
+
+commit 20b6209349beeca9c85fbc0185e72c41043dc60f
+Merge: 4d3552b 1eea7cb
+Author: namuyongsa <namyoung1464@gmail.com>
+Date:   Fri Apr 4 16:30:34 2025 +0900
+
+    Merge pull request #6 from JiHunHeo/namyoung_test
+    
+    남영 첫번째 커밋
+
+commit 1eea7cba6e8641eabfe1d656ad3ff3aecd02e28b
+Author: namuyongsa <namyoung1464@gmail.com>
+Date:   Fri Apr 4 16:22:41 2025 +0900
+
+    남영 첫번째 커밋
+
+commit 4d3552be4fcdd8efedd3453d499d33341ec69f6c
+Merge: 44b0473 4650579
+Author: monacoding <symphony5809@gmail.com>
+Date:   Fri Apr 4 12:12:40 2025 +0900
+
+    Merge pull request #5 from JiHunHeo/mona
+    
+    mona test commit
+
+commit 465057976a968b8d3fa1907872976c6f4faba34c
+Author: monacoding <symphony5809@gmail.com>
+Date:   Fri Apr 4 12:10:11 2025 +0900
+
+    mona test commit
+
+commit 44b047333253b838f649238dce63860f5532d2f2
+Merge: 9e11cdd 7bfa34a
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Thu Apr 3 14:02:29 2025 +0900
+
+    Merge pull request #4 from JiHunHeo/GidgTest
+    
+    Gidg test
+
+commit 7bfa34adf0648022c66e7109141892d00c8d15e0
+Author: Gidg0428 <agsm01283@gmail.com>
+Date:   Thu Apr 3 13:19:58 2025 +0900
+
+    Gidg test commit
+
+commit a48d879cc75dfca62c1c5b8a2f195d0badf54163
+Author: Gidg0428 <agsm01283@gmail.com>
+Date:   Thu Apr 3 13:19:37 2025 +0900
+
+    Gidg test commit
+
+commit 9e11cdd9ecb715bc1a852e2f26df07e685f1947e
+Merge: dc8288b ad70dcf
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Wed Apr 2 10:08:41 2025 +0900
+
+    Merge pull request #3 from JiHunHeo/minheeTest
+    
+    app.py 팀원 박민희입니다 테스트 추가
+
+commit ad70dcfe9a86f4cfa3a8cdf1302258bd73a7d6fc
+Author: minhee0830 <pmh0830kr@naver.com>
+Date:   Wed Apr 2 09:45:15 2025 +0900
+
+    app.py 수정
+
+commit dc8288be6971bf5e1143b94ed640b4b07458fc38
+Merge: be9a8bb c9e07d6
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Wed Apr 2 00:15:32 2025 +0900
+
+    Merge pull request #2 from JiHunHeo/PMTest
+    
+    OK Commit
+
+commit c9e07d6d6befedfcb919cc785de11d395a31bf98
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Wed Apr 2 00:13:12 2025 +0900
+
+    PM test commit
+
+commit be9a8bbb6eb8e408b90947b72f7cb0a3312a3715
+Merge: faa5eb8 599a1e5
+Author: JiHunHeo <99526220+JiHunHeo@users.noreply.github.com>
+Date:   Tue Apr 1 23:35:20 2025 +0900
+
+    Merge pull request #1 from JiHunHeo/testPM
+    
+    PM test commit
+
+commit 599a1e5c8f87469ea2ba955599d4095534571ddd
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Tue Apr 1 23:33:50 2025 +0900
+
+    PM test commit
+
+commit faa5eb8c8e596d41ba85b687896a8048d9e82c8d
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Sat Mar 29 20:27:47 2025 +0900
+
+    second commit
+
+commit 510494b9c5030afb348ba08a165731e430ae3bd2
+Author: JiHunHeo <hyh6269@naver.com>
+Date:   Sat Mar 29 20:24:27 2025 +0900
+
+    first commit
