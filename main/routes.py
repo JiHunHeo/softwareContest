@@ -25,4 +25,20 @@ def get_commits_from_file(json_file):
 @main.route('/timeline')
 def timeline():
     commits = get_commits_from_file("commits.json")  # JSON 파일에서 커밋 정보 읽기
-    return render_template('timeline.html', commits=commits)
+
+    # 페이지네이션 계산
+    page = int(request.args.get('page', 1))  # 현재 페이지 (기본값: 1)
+    per_page = 10  # 페이지당 커밋 수
+    total_pages = (len(commits) + per_page - 1) // per_page  # 전체 페이지 수 계산
+
+    # 현재 페이지에 해당하는 커밋만 전달
+    start = (page - 1) * per_page
+    end = start + per_page
+    paginated_commits = commits[start:end]
+
+    return render_template(
+        'timeline.html',
+        commits=paginated_commits,
+        page=page,
+        total_pages=total_pages
+    )
