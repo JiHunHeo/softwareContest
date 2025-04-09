@@ -1,5 +1,101 @@
 [
     {
+        "hash": "ed6494a",
+        "author": "JiHunHeo",
+        "date": "2025-04-10 00:20:37",
+        "message": "인코딩 관련 설정파일 추가 및 해당파일 수정"
+    },
+    {
+        "hash": "d03cc62",
+        "author": "JiHunHeo",
+        "date": "2025-04-10 00:07:30",
+        "message": "Merge pull request #18 from JiHunHeo/dodoritest\n\ndodoritest commit"
+    },
+    {
+        "hash": "87f3ea5",
+        "author": "Dodori33",
+        "date": "2025-04-10 00:00:06",
+        "message": "dodoritest commit"
+    },
+    {
+        "hash": "b239d47",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 23:56:29",
+        "message": "li 태그 스타일 수정"
+    },
+    {
+        "hash": "65bb85a",
+        "author": "Dodori33",
+        "date": "2025-04-09 23:49:43",
+        "message": "dodoritest commit"
+    },
+    {
+        "hash": "3069ffb",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 23:39:09",
+        "message": "의견에 대한 답변 추가 커밋"
+    },
+    {
+        "hash": "bc25336",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 23:24:24",
+        "message": "minhee-commit\n\n굿 ! 좋습니다 ! 확인했습니다 !"
+    },
+    {
+        "hash": "896b01f",
+        "author": "minhee0830",
+        "date": "2025-04-09 23:21:42",
+        "message": "about.html 수정"
+    },
+    {
+        "hash": "26c9563",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 14:39:50",
+        "message": "Merge pull request #16 from JiHunHeo/yj\n\nyj second text delete"
+    },
+    {
+        "hash": "76e405b",
+        "author": "yujjeonglee",
+        "date": "2025-04-09 14:10:52",
+        "message": "yj second text delete"
+    },
+    {
+        "hash": "8c5d218",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 11:25:18",
+        "message": "Merge pull request #15 from JiHunHeo/yj\n\n충돌 해결 후 커밋합니다 !"
+    },
+    {
+        "hash": "2c9fd33",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 11:24:51",
+        "message": "Merge branch 'master' into yj"
+    },
+    {
+        "hash": "f702e4b",
+        "author": "yujjeonglee",
+        "date": "2025-04-09 10:56:04",
+        "message": "yj second test"
+    },
+    {
+        "hash": "7e6bad8",
+        "author": "yujjeonglee",
+        "date": "2025-04-09 10:36:34",
+        "message": "yj test commit"
+    },
+    {
+        "hash": "c85f853",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 02:45:41",
+        "message": "Modify routes.py"
+    },
+    {
+        "hash": "74703fb",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 02:40:38",
+        "message": "Modify timeline page loading process"
+    },
+    {
         "hash": "429f1c1",
         "author": "JiHunHeo",
         "date": "2025-04-09 02:18:51",
