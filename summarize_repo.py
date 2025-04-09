@@ -1,4 +1,5 @@
 import os
+import json
 from git import Repo
 from datetime import datetime
 
@@ -38,7 +39,28 @@ def summarize_repository(repo_path):
         print(f"  해시: {commit['hash']}")
         print()
 
+def export_commits_to_json(repo_path, output_file):
+    try:
+        repo = Repo(repo_path)
+        commits = [
+            {
+                "hash": commit.hexsha[:7],
+                "author": commit.author.name,
+                "date": commit.committed_datetime.strftime('%Y-%m-%d %H:%M:%S'),
+                "message": commit.message.strip(),
+            }
+            for commit in repo.iter_commits('master')
+        ]
+
+        # 파일 생성 시 newline='\n'으로 줄바꿈 강제 설정
+        with open(output_file, "w", encoding="utf-8", newline='\n') as f:
+            json.dump(commits, f, ensure_ascii=False, indent=4)
+        print(f"커밋 정보가 {output_file}에 저장되었습니다.")
+    except Exception as e:
+        print(f"에러 발생: {e}")
+
 if __name__ == "__main__":
     # 레포지토리 경로 설정
     repo_path = os.path.abspath(".")  # 현재 디렉토리
     summarize_repository(repo_path)
+    export_commits_to_json(".", "commits.json")
