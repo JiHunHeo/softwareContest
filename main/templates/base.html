@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}경진대회{% endblock %}</title>
+        <link rel="stylesheet" href="/static/style.css" />
+        <script src="/static/script.js" defer></script>
+        <link rel="icon" href="/static/favicon.png" type="image/png" />
+    </head>
+    <body>
+        <div id="background">
+            <!-- 꽃잎 요소 -->
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+        </div>
+        <header>
+            <nav>
+                <button onclick="location.href='/'">메인 페이지</button>
+                <button onclick="location.href='/about'">About 페이지</button>
+                <button onclick="location.href='/timeline'">프로젝트 타임라인 보기</button>
+                <!-- 타임라인 버튼 추가 -->
+            </nav>
+        </header>
+        <main>
+            <section>{% block content %}{% endblock %}</section>
+        </main>
+    </body>
+</html>
