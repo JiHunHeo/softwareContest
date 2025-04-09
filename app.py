@@ -1,32 +1,10 @@
 from flask import Flask
+import os  # Railway에서 제공하는 PROT 환경 변수 사용을 위한 import
+from main.routes import main  # Blueprint import
 
 app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return '''
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>경진대회</title>
-        <link rel="stylesheet" href="/static/style.css">
-        <script src="/static/script.js" defer></script>
-    </head>
-    <body>
-        <h1>학우 여러분 반갑습니다!</h1>
-        <h1>팀장입니다 !</h1>
-        <h1>박민희입니다 !</h1>
-        <h1>강기동입니다 !</h1>
-        <h1>김태형입니다 !</h1>
-        <h1>김남영입니다 !</h1>
-        <h1 id="blinking-text" class="blink">경진대회 준비에 박차를 가해봅시다!</h1>
-        <button onclick="stopBlinking()">반짝임 멈추기</button>
-        <button onclick="startBlinking()">다시 반짝이게</button>
-    </body>
-    </html>
-    '''
+app.register_blueprint(main)  # Blueprint 등록
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Railway에서 제공하는 PORT 환경 변수 사용
+    app.run(host='0.0.0.0', port=port)

@@ -1,0 +1,260 @@
+[
+    {
+        "hash": "429f1c1",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 02:18:51",
+        "message": "Modify requirements.txt"
+    },
+    {
+        "hash": "8b0d001",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 02:01:14",
+        "message": "Modify about.html, base.html, style.css, routes.py"
+    },
+    {
+        "hash": "d8f5424",
+        "author": "JiHunHeo",
+        "date": "2025-04-09 01:03:49",
+        "message": "Add commit_history.txt"
+    },
+    {
+        "hash": "accd045",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 23:38:46",
+        "message": "Railway test commit"
+    },
+    {
+        "hash": "71fe858",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 14:56:48",
+        "message": "Merge pull request #13 from JiHunHeo/GidgTest\n\nGidg test"
+    },
+    {
+        "hash": "438a6e9",
+        "author": "Gidg0428",
+        "date": "2025-04-07 14:38:24",
+        "message": "branch test commit'"
+    },
+    {
+        "hash": "cad7359",
+        "author": "Gidg0428",
+        "date": "2025-04-07 14:34:32",
+        "message": "branch test commit"
+    },
+    {
+        "hash": "f769fc6",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 01:12:20",
+        "message": "Change favicon.png"
+    },
+    {
+        "hash": "187ceea",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 01:10:40",
+        "message": "Modify UI and add petal effect"
+    },
+    {
+        "hash": "b55e022",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:59:46",
+        "message": "Modify UI for all"
+    },
+    {
+        "hash": "76cc953",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:54:49",
+        "message": "Merge pull request #12 from JiHunHeo/PMTest\n\nModify UI"
+    },
+    {
+        "hash": "936d77d",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:54:08",
+        "message": "Modify UI"
+    },
+    {
+        "hash": "798020f",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:48:36",
+        "message": "Merge pull request #11 from JiHunHeo/PMTest\n\nError handle commit"
+    },
+    {
+        "hash": "dfcecba",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:47:55",
+        "message": "Error handle commit"
+    },
+    {
+        "hash": "21f4b20",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:41:51",
+        "message": "Merge pull request #10 from JiHunHeo/PMTest\n\nPM push code add new page"
+    },
+    {
+        "hash": "de37dd4",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:40:08",
+        "message": "PM push code add new page"
+    },
+    {
+        "hash": "4f34b5f",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:29:41",
+        "message": "Merge pull request #9 from JiHunHeo/PMTest\n\nbranch test commit"
+    },
+    {
+        "hash": "e51b140",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:28:32",
+        "message": "branch test commit"
+    },
+    {
+        "hash": "babf063",
+        "author": "JiHunHeo",
+        "date": "2025-04-07 00:26:32",
+        "message": "PM test commit"
+    },
+    {
+        "hash": "5a43d5a",
+        "author": "JiHunHeo",
+        "date": "2025-04-05 20:04:00",
+        "message": "Modify app.py for favicon.png"
+    },
+    {
+        "hash": "6b18c13",
+        "author": "JiHunHeo",
+        "date": "2025-04-05 20:02:21",
+        "message": "Add favicon"
+    },
+    {
+        "hash": "734eb92",
+        "author": "JiHunHeo",
+        "date": "2025-04-05 19:45:06",
+        "message": "Modify Procfile and requirements.txt for RailWay"
+    },
+    {
+        "hash": "2f2e968",
+        "author": "JiHunHeo",
+        "date": "2025-04-05 19:39:04",
+        "message": "Add Procfile and requirements.txt and remote app.py for Railway test"
+    },
+    {
+        "hash": "5d1da6c",
+        "author": "JiHunHeo",
+        "date": "2025-04-05 08:27:20",
+        "message": "Merge pull request #8 from JiHunHeo/JiHunHeo-patch-1\n\nDelete index.html"
+    },
+    {
+        "hash": "0f5976d",
+        "author": "JiHunHeo",
+        "date": "2025-04-05 08:27:04",
+        "message": "Delete index.html\n\nDelete unused files"
+    },
+    {
+        "hash": "ebae453",
+        "author": "JiHunHeo",
+        "date": "2025-04-04 17:08:02",
+        "message": "Update for master branch\n\nPM Commit"
+    },
+    {
+        "hash": "adb1d0c",
+        "author": "JiHunHeo",
+        "date": "2025-04-04 16:55:33",
+        "message": "Merge pull request #7 from JiHunHeo/namyoung_test\n\nmerge 되는지 확인용 커밋"
+    },
+    {
+        "hash": "53b950c",
+        "author": "namuyongsa",
+        "date": "2025-04-04 16:36:06",
+        "message": "merge 되는지 확인용 커밋"
+    },
+    {
+        "hash": "20b6209",
+        "author": "namuyongsa",
+        "date": "2025-04-04 16:30:34",
+        "message": "Merge pull request #6 from JiHunHeo/namyoung_test\n\n남영 첫번째 커밋"
+    },
+    {
+        "hash": "1eea7cb",
+        "author": "namuyongsa",
+        "date": "2025-04-04 16:22:41",
+        "message": "남영 첫번째 커밋"
+    },
+    {
+        "hash": "4d3552b",
+        "author": "monacoding",
+        "date": "2025-04-04 12:12:40",
+        "message": "Merge pull request #5 from JiHunHeo/mona\n\nmona test commit"
+    },
+    {
+        "hash": "4650579",
+        "author": "monacoding",
+        "date": "2025-04-04 12:10:11",
+        "message": "mona test commit"
+    },
+    {
+        "hash": "44b0473",
+        "author": "JiHunHeo",
+        "date": "2025-04-03 14:02:29",
+        "message": "Merge pull request #4 from JiHunHeo/GidgTest\n\nGidg test"
+    },
+    {
+        "hash": "7bfa34a",
+        "author": "Gidg0428",
+        "date": "2025-04-03 13:19:58",
+        "message": "Gidg test commit"
+    },
+    {
+        "hash": "a48d879",
+        "author": "Gidg0428",
+        "date": "2025-04-03 13:19:37",
+        "message": "Gidg test commit"
+    },
+    {
+        "hash": "9e11cdd",
+        "author": "JiHunHeo",
+        "date": "2025-04-02 10:08:41",
+        "message": "Merge pull request #3 from JiHunHeo/minheeTest\n\napp.py 팀원 박민희입니다 테스트 추가"
+    },
+    {
+        "hash": "ad70dcf",
+        "author": "minhee0830",
+        "date": "2025-04-02 09:45:15",
+        "message": "app.py 수정"
+    },
+    {
+        "hash": "dc8288b",
+        "author": "JiHunHeo",
+        "date": "2025-04-02 00:15:32",
+        "message": "Merge pull request #2 from JiHunHeo/PMTest\n\nOK Commit"
+    },
+    {
+        "hash": "c9e07d6",
+        "author": "JiHunHeo",
+        "date": "2025-04-02 00:13:12",
+        "message": "PM test commit"
+    },
+    {
+        "hash": "be9a8bb",
+        "author": "JiHunHeo",
+        "date": "2025-04-01 23:35:20",
+        "message": "Merge pull request #1 from JiHunHeo/testPM\n\nPM test commit"
+    },
+    {
+        "hash": "599a1e5",
+        "author": "JiHunHeo",
+        "date": "2025-04-01 23:33:50",
+        "message": "PM test commit"
+    },
+    {
+        "hash": "faa5eb8",
+        "author": "JiHunHeo",
+        "date": "2025-03-29 20:27:47",
+        "message": "second commit"
+    },
+    {
+        "hash": "510494b",
+        "author": "JiHunHeo",
+        "date": "2025-03-29 20:24:27",
+        "message": "first commit"
+    }
+]
