@@ -160,6 +160,20 @@ li small {
     font-size: 0.9em;
 }
 
+/* 가장 바깥쪽 li 태그에만 스타일 적용 */
+ol > li {
+    border-left: 4px solid #007bff; /* 파란색 선 */
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* 안쪽 li 태그는 스타일 제거 */
+ol li ul li {
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 5px;
+}
+
 /* 페이지네이션 스타일 */
 .pagination a,
 .pagination strong {
