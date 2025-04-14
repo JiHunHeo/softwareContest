@@ -42,3 +42,17 @@ def timeline():
         page=page,
         total_pages=total_pages
     )
+
+@main.route('/samplegrid')
+def samplegrid():
+    
+    # 그리드 컬럼 선언
+    columns = [
+        {"label": "제목", "key": "title"},
+        {"label": "내용", "key": "content"},
+        {"label": "날짜", "key": "date"}
+    ]
+    # 그리드 샘플 json 데이터
+    data = get_commits_from_file("gridsampledata.json")
+
+    return render_template('samplegrid.html', table_id="samplegrid", columns=columns, data=data)
