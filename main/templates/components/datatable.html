@@ -5,11 +5,12 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function () {
-    $("table.display").DataTable({
-        pageLength: 10,
+        $("table.display").DataTable({
+        pageLength: 20,
+        autoWidth: false,
         language: {
             url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/ko.json"
-        }
+        },
     });
 });
 </script>
@@ -17,7 +18,7 @@
     <thead>
         <tr>
             {% for col in columns %}
-            <th>{{ col.label }}</th>
+            <th style="text-align: center; width: {{ col.width }}">{{ col.label }}</th>
             {% endfor %}
         </tr>
     </thead>

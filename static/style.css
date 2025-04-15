@@ -33,6 +33,8 @@ section {
 nav {
     margin-top: 20px;
     text-align: center; /* 버튼 가운데 정렬 */
+    display: flex;
+    justify-content: center;
 }
 
 nav button {

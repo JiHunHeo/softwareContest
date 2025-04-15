@@ -43,16 +43,23 @@ def timeline():
         total_pages=total_pages
     )
 
-@main.route('/samplegrid')
+@main.route('/samplegrid', methods=['GET', 'POST'])
 def samplegrid():
-    
+    if request.method == 'GET':
     # 그리드 컬럼 선언
-    columns = [
-        {"label": "제목", "key": "title"},
-        {"label": "내용", "key": "content"},
-        {"label": "날짜", "key": "date"}
-    ]
-    # 그리드 샘플 json 데이터
-    data = get_commits_from_file("gridsampledata.json")
+    # 데이터 형식을 맞추고 width 조정 가능 
+    # *(그리드 자체 width 값이 auto 로 설정 되어 있어 특정 width 수정이 필요한 컬럼만 수정)
+        columns = [
+            {"label": "순번", "key": "idx", "width": "30px"},
+            {"label": "날짜", "key": "date",},
+            {"label": "제목", "key": "title","width": "400px"},
+            # {"label": "내용", "key": "content"},
+            {"label": "작성자", "key": "writer"}
+        ]
+    # 그리드 샘플 json 데이터 추후 DB 데이터 가져오는 것으로 변경예정
+        data = get_commits_from_file("gridsampledata.json")
 
-    return render_template('samplegrid.html', table_id="samplegrid", columns=columns, data=data)
+        return render_template('samplegrid.html', table_id="samplegrid", columns=columns, data=data)
+    elif request.method == 'POST':
+        # 게시판 세부 내용을 볼 수 있는 화면 랜더
+        return jsonify({"success": True})
