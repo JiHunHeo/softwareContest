@@ -1,8 +1,8 @@
 [
-    { "title": "sample1", "content": "testdate 입니다1.", "date": "2025-04-11" },
-    { "title": "sample2", "content": "testdate 입니다2.", "date": "2025-04-11" },
-    { "title": "sample3", "content": "testdate 입니다3.", "date": "2025-04-11" },
-    { "title": "sample4", "content": "testdate 입니다4.", "date": "2025-04-11" },
-    { "title": "sample5", "content": "testdate 입니다5.", "date": "2025-04-11" },
-    { "title": "sample6", "content": "testdate 입니다6.", "date": "2025-04-11" }
+    { "idx": 1, "title": "sample1", "content": "testdate 입니다1.", "date": "2025-04-11", "writer": "관리자" },
+    { "idx": 2, "title": "sample2", "content": "testdate 입니다2.", "date": "2025-04-11", "writer": "관리자" },
+    { "idx": 3, "title": "sample3", "content": "testdate 입니다3.", "date": "2025-04-11", "writer": "관리자" },
+    { "idx": 4, "title": "sample4", "content": "testdate 입니다4.", "date": "2025-04-11", "writer": "관리자" },
+    { "idx": 5, "title": "sample5", "content": "testdate 입니다5.", "date": "2025-04-11", "writer": "관리자" },
+    { "idx": 6, "title": "sample6", "content": "testdate 입니다6.", "date": "2025-04-11", "writer": "관리자" }
 ]

@@ -1,0 +1,6 @@
+{
+  "ignoreFiles": ["**/main/templates/components/datatable.html"],
+  "rules": {
+    "no-descending-specificity": null
+  }
+} 

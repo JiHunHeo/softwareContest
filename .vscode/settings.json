@@ -1,0 +1,6 @@
+{
+    "stylelint.validate": ["css", "scss", "html"],
+    "stylelint.ignoreFiles": ["**/main/templates/components/datatable.html"],
+    "css.validate": false,
+    "stylelint.enable": true
+} 
