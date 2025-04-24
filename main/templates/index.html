@@ -1,22 +1,35 @@
 {% extends "base.html" %} {% block title %}메인 페이지{% endblock %} {% block content %}
-<h2>우선 배포를 위해 코드를 수정하였습니다!</h2>
-<h2>과제 제출 퐈이팅입니다 !!!</h2>
-<h2>학우 여러분 반갑습니다!</h2>
-<h2>팀장입니다 !</h2>
-<h2>박민희입니다 !</h2>
-<h2>강기동입니다 !</h2>
-<h2>김태형입니다 !</h2>
-<h2>김남영입니다 !</h2>
-<h2>이유정입니다 !</h2>
-<h2>김효정입니다 !</h2>
+<h1>자바칩 페이지입니다!</h1>
 <h2 id="github-mission-C-list"></h2>
-<h2>강기동 작업 완료</h2>
-<h2>김효정 작업 완료</h2>
-<h2>이유정 작업 완료</h2>
-<h2>김남영 작업 완료</h2>
-<h2>Railway에 배포되는 중입니다 !</h2>
-<h2>더 열심히 해봅시다 !!!</h2>
-<h2 id="blinking-text" class="blink">경진대회 준비에 박차를 가해봅시다!</h2>
+<h2>하나씩 하나씩 차근차근 진행합시다!!</h2>
+<h2 id="blinking-text" class="blink">자바칩 화이팅!!!</h2>
 <button onclick="stopBlinking()">반짝임 멈추기</button>
 <button onclick="startBlinking()">다시 반짝이게</button>
-{% endblock %}
+
+<hr />
+<h1>게시판</h1>
+<a href="{{ url_for('main.new_post', board_type='익명게시판') }}">새 글 작성</a>
+
+<!-- 게시판 목록 -->
+<h1>게시판 목록</h1>
+<ul>
+    <li><a href="{{ url_for('main.board', board_type='익명게시판') }}">익명게시판</a></li>
+    <li><a href="{{ url_for('main.board', board_type='과목별 후기 게시판') }}">과목별 후기 게시판</a></li>
+    <li><a href="{{ url_for('main.board', board_type='취업 정보 게시판') }}">취업 정보 게시판</a></li>
+    <li><a href="{{ url_for('main.board', board_type='중고 게시판') }}">중고 게시판</a></li>
+</ul>
+
+<!-- 게시글 목록 -->
+<ul>
+    {% for post in posts %}
+    <li>
+        <strong>{{ post.title }}</strong> - {{ post.author }} ({{ post.created_at.strftime('%Y-%m-%d') }})
+        <p>{{ post.content }}</p>
+    </li>
+    {% endfor %}
+</ul>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<!-- 게시글이 없을 경우 메시지 표시 -->
+{% if posts|length == 0 %}
+<p>게시글이 없습니다. 새 글을 작성해보세요!</p>
+{% endif %} {% endblock %}

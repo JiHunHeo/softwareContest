@@ -3,17 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{% block title %}경진대회{% endblock %}</title>
-        <link rel="stylesheet" href="/static/style.css" />
-        <script src="/static/script.js" defer></script>
-        <link rel="icon" href="/static/favicon.png" type="image/png" />
+        <title>{% block title %}소프트웨어 콘테스트{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
     </head>
     <body>
         <div id="background">
-            <!-- 꽃잎 요소 -->
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
             <div class="petal"></div>
             <div class="petal"></div>
             <div class="petal"></div>
@@ -23,14 +19,45 @@
         </div>
         <header>
             <nav>
-                <button onclick="location.href='/'">메인 페이지</button>
-                <button onclick="location.href='/about'">About 페이지</button>
-                <button onclick="location.href='/timeline'">프로젝트 타임라인 보기</button>
-                <!-- 타임라인 버튼 추가 -->
+                <form method="GET" action="{{ url_for('main.index') }}" style="display: inline">
+                    <button type="submit">홈</button>
+                </form>
+                <form method="GET" action="{{ url_for('main.about') }}" style="display: inline">
+                    <button type="submit">소개</button>
+                </form>
+                <form method="GET" action="{{ url_for('main.notices') }}" style="display: inline">
+                    <button type="submit">공지사항 게시판</button>
+                </form>
+                {% if current_user.is_authenticated %}
+                <form method="GET" action="{{ url_for('main.profile') }}" style="display: inline">
+                    <button type="submit">프로필</button>
+                </form>
+                <form method="POST" action="{{ url_for('main.logout') }}" style="display: inline">
+                    <button type="submit">로그아웃</button>
+                </form>
+                {% else %}
+                <form method="GET" action="{{ url_for('main.register') }}" style="display: inline">
+                    <button type="submit">회원가입</button>
+                </form>
+                <form method="GET" action="{{ url_for('main.login') }}" style="display: inline">
+                    <button type="submit">로그인</button>
+                </form>
+                <form method="GET" action="{{ url_for('main.forgot_password') }}" style="display: inline">
+                    <button type="submit">비밀번호 찾기</button>
+                </form>
+                {% endif %}
             </nav>
         </header>
-        <main>
-            <section>{% block content %}{% endblock %}</section>
-        </main>
+
+        <!-- Flash 메시지를 JavaScript alert로 표시 -->
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <script>
+            {% for message in messages %}
+                alert("{{ message }}");
+            {% endfor %}
+        </script>
+        {% endif %} {% endwith %}
+
+        <main>{% block content %} {% endblock %}</main>
     </body>
 </html>

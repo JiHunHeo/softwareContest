@@ -1,0 +1,16 @@
+<!-- filepath: c:\KNOU_HJH\softwareContest\main\templates\notices.html -->
+{% extends "base.html" %} {% block title %}공지사항 게시판{% endblock %} {% block content %}
+<section>
+    <h1>공지사항 게시판</h1>
+    <ul>
+        {% for notice in notices %}
+        <li>
+            <h2>{{ notice.title }}</h2>
+            <p>{{ notice.content }}</p>
+            <a href="{{ notice.source_url }}" target="_blank">원문 보기</a>
+            <p>작성일: {{ notice.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
