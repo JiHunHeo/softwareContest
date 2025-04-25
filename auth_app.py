@@ -13,29 +13,123 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # SQLAlchemy 이벤트 추�
 db = SQLAlchemy(app)
 
 # User 모델 정의
+# 사용자(User) 테이블 모델 정의
+# User 모델 정의
+# 사용자(User) 테이블 모델 정의
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True) # 사용자 고유 ID (자동 증가)
-    username = db.Column(db.String(50), unique=True, nullable=False) # 사용자 이름 (중복 불가, 필수)
-    email = db.Column(db.String(100), unique=True, nullable=False) # 이메일 (중복 불가, 필수)
-    password = db.Column(db.String(255), nullable=False) # 암호화된 비밀번호
+    __tablename__ = 'users' 
+    # 로그인 아이디 (Primary Key, 중복 불가, 필수 입력)
+    user_id = db.Column(db.String(50), primary_key=True, nullable=False)
+    
+    # 사용자 이름 (필수 입력)
+    username = db.Column(db.String(50), nullable=False)
 
-# 회원가입 라우트
+    # 이메일 (중복 불가, 필수 입력)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    
+    # 생년월일 (형식: YYYY-MM-DD, 필수 입력)
+    birthdate = db.Column(db.Date, nullable=False)
+    
+    # 학번 (중복 불가, 필수 입력)
+    student_id = db.Column(db.String(20), unique=True, nullable=False)
+    
+    # 휴대폰 번호 (중복 불가, 필수 입력)
+    phone_number = db.Column(db.String(15), unique=True, nullable=False)
+    
+    # 주소 (필수 입력)
+    address = db.Column(db.String(255), nullable=False)
+    
+    # 직장인 여부 (True: 직장인, False: 학생 등 / 기본값: False)
+    is_employed = db.Column(db.Boolean, default=False)
+    
+    # 비밀번호 찾기 질문 (필수 입력)
+    security_question = db.Column(db.String(255), nullable=False)
+    
+    # 비밀번호 찾기 답변 (필수 입력)
+    security_answer = db.Column(db.String(255), nullable=False)
+    
+    # 암호화된 비밀번호 (필수 입력)
+    password = db.Column(db.String(200), nullable=False)
+    
+    # 가입일 (자동 저장, 현재 시간 기준)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    
+    # 관리자 여부 (기본값: 일반 사용자 False)
+    is_admin = db.Column(db.Boolean, default=False)
+
+
+#회원가입 라우트
 @app.route('/register', methods=['POST'])
 def register():
-    data = request.get_json() # JSON 형식으로 요청 데이터 받기
-    username = data['username']
+    data = request.get_json()
+
+    # 필수 항목 받기
+    # 사용자가 직접 입력한 로그인 아이디 (중복 체크 대상)
+    user_id = data['user_id']
+
+    # 이메일 (중복 체크 대상, 예: 'minhee@example.com')
     email = data['email']
+
+    # 사용자 이름 (예: '박민희')
+    username = data['username']
+
+    # 생년월일 (형식: 'YYYY-MM-DD', 예: '1995-05-15')
+    birthdate = data['birthdate']
+
+    # 학번 (중복 체크 대상, 예: '20250001')
+    student_id = data['student_id']
+
+    # 휴대폰 번호 (중복 체크 대상, 예: '01012345678')
+    phone_number = data['phone_number']
+
+    # 주소 (예: '서울특별시 강남구')
+    address = data['address']
+
+    # 직장인 여부 (True: 직장인, False: 학생 등, Boolean 값)
+    is_employed = data['is_employed']
+
+    # 비밀번호 찾기 질문 (예: '내 고향은?')
+    security_question = data['security_question']
+
+    # 비밀번호 찾기 답변 (예: '울산')
+    security_answer = data['security_answer']
+
+    # 사용자가 입력한 비밀번호 (암호화 후 DB에 저장)
     password = data['password']
+
+
+    # 중복 검사 (user_id, phone_number, student_id)
+    if User.query.filter_by(user_id=user_id).first():
+        return jsonify({'message': '이미 사용 중인 아이디입니다.'}), 409
+    if User.query.filter_by(email=email).first():
+        return jsonify({'message': '이미 등록된 이메일입니다.'}), 409
+    if User.query.filter_by(phone_number=phone_number).first():
+        return jsonify({'message': '이미 등록된 휴대폰 번호입니다.'}), 409
+    if User.query.filter_by(student_id=student_id).first():
+        return jsonify({'message': '이미 등록된 학번입니다.'}), 409
 
     # 비밀번호 암호화
     hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-    # 새 유저 DB에 저장
-    new_user = User(username=username, email=email, password=hashed_pw.decode('utf-8'))
-    db.session.add(new_user) # DB에 추가
-    db.session.commit() # 저장
+    # 새 유저 저장
+    new_user = User(
+        user_id=user_id,
+        username=username,
+        email=email,
+        birthdate=birthdate,
+        student_id=student_id,
+        phone_number=phone_number,
+        address=address,
+        is_employed=is_employed,
+        security_question=security_question,
+        security_answer=security_answer,
+        password=hashed_pw.decode('utf-8')
+    )
+    db.session.add(new_user)
+    db.session.commit()
 
-    return jsonify({'message': '회원가입 성공!'}) # 클라이언트에게 성공 메시지 반환
+    return jsonify({'message': '회원가입 성공!'})
+
 
 # 기본 홈 라우트 (서버 상태 확인 위해 넣어둠)
 @app.route('/')
