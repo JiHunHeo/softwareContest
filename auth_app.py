@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify #Flask 웹 서버, 요청처리, JSON 응답용
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt #비밀번호 암호화용 라이브러리
+from datetime import datetime #per_id 위한 라이브러리
 
 # Flask 앱 초기화
 app = Flask(__name__)
@@ -17,10 +18,10 @@ db = SQLAlchemy(app)
 # User 모델 정의
 # 사용자(User) 테이블 모델 정의
 class User(db.Model):
-    __tablename__ = 'users' 
+    __tablename__ = 'user' #테이블명 user 
 
-    #DB기본 키
-    per_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # DB기본 키
+    per_id = db.Column(db.String(20), primary_key=True)  # 고유 문자열 ID
 
     # 로그인용 아이디 
     user_id = db.Column(db.String(50), unique=True, nullable=False)
@@ -112,11 +113,17 @@ def register():
     if User.query.filter_by(student_id=student_id).first():
         return jsonify({'message': '이미 등록된 학번입니다.'}), 409
 
+
+    # per_id 생성 (PERS + 년월일시분초 + 밀리초)
+    now = datetime.now()
+    per_id = "PERS" + now.strftime("%Y%m%d%H%M%S%f")[:20]
+
     # 비밀번호 암호화
     hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
     # 새 유저 저장
     new_user = User(
+        per_id=per_id,
         user_id=user_id,
         username=username,
         email=email,
@@ -132,7 +139,7 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({'message': '회원가입 성공!'})
+    return jsonify({'message': '회원가입 성공!', 'per_id': per_id})
 
 
 # 기본 홈 라우트 (서버 상태 확인 위해 넣어둠)
