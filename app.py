@@ -10,7 +10,7 @@ from flask_moment import Moment
 from datetime import datetime
 import pytz
 
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')  # 세션 암호화를 위한 키 설정
@@ -21,10 +21,11 @@ db_password = os.getenv('DB_PASSWORD')
 db_host = os.getenv('DB_HOST')
 db_name = os.getenv('DB_NAME')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:TIGtaUYtJUmbbtEXAGwWyuReGQNSCowP@metro.proxy.rlwy.net:56996/railway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-
+print("+++++++++++++++++++++++")
+print(app.config['SQLALCHEMY_DATABASE_URI'])
 db.init_app(app)
 
 # Flask-Migrate 초기화
