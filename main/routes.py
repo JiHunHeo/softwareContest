@@ -191,11 +191,14 @@ def login():
                     # 잠금 해제 및 실패 기록 초기화
                     user.is_locked = False
                     user.lock_until = None
-                    UserLoginFail.query.filter_by(user_id=user.id).delete()
+                    UserLoginFail.query.filter_by(user_id=user.per_id).delete()
                     db.session.commit()
 
             # 비밀번호 검증
-            if check_password_hash(user.password, password):
+            if user and check_password_hash(user.password, password):
+                UserLoginFail.query.filter_by(user_id=user.per_id).delete()
+                db.session.commit()
+
                 # 로그인 성공
                 user.last_login_at = get_kst_time()  # 마지막 로그인 시간 갱신
                 user.last_login_ip = request.remote_addr  # 마지막 로그인 IP 기록
@@ -203,8 +206,7 @@ def login():
                 user.lock_until = None
 
                 # 실패 기록 초기화
-                UserLoginFail.query.filter_by(user_id=user.id).delete()
-                db.session.commit()
+                UserLoginFail.query.filter_by(user_id=user.per_id).delete()
 
                 login_user(user)
                 flash('로그인 성공!')
@@ -212,7 +214,7 @@ def login():
             else:
                 # 로그인 실패 처리
                 failed_attempts = UserLoginFail.query.filter(
-                    UserLoginFail.user_id == user.id,
+                    UserLoginFail.user_id == user.per_id,
                     UserLoginFail.failed_at >= datetime.utcnow() - timedelta(minutes=LOCKOUT_TIME)
                 ).count()
 
@@ -224,16 +226,25 @@ def login():
                     flash(f"로그인 실패 횟수가 초과되었습니다. 계정이 {LOCKOUT_TIME}분 동안 잠깁니다.")
                 else:
                     # 실패 기록 저장
-                    failed_attempt = UserLoginFail(
-                        user_id=user.id,
-                        ip_address=request.remote_addr,
-                        fail_count=failed_attempts + 1,  # 실패 횟수 증가
-                        is_locked=False,
-                        failed_at=get_kst_time()  # 실패 시간 한국 시간으로 저장
-                    )
-                    db.session.add(failed_attempt)
+                    failed_attempt = UserLoginFail.query.filter_by(user_id=user.per_id, failed_at=get_kst_time()).first()
+
+                    if failed_attempt:
+                        # 동일한 실패 기록이 이미 존재하면 업데이트하지 않음
+                        logging.debug(f"Duplicate login fail record for User ID: {user.per_id}")
+                    else:
+                        # 새로운 실패 기록 생성
+                        failed_attempt = UserLoginFail(
+                            user_id=user.per_id,
+                            ip_address=request.remote_addr,
+                            fail_count=failed_attempts + 1,
+                            is_locked=False,
+                            failed_at=get_kst_time()
+                        )
+                        db.session.add(failed_attempt)
+
                     db.session.commit()
-                    logging.debug(f"User ID: {user.id}, Failed Attempts: {failed_attempts + 1}")
+                    logging.debug(f"User ID: {user.per_id}, Failed Attempts: {failed_attempt.fail_count}")
+
                     flash(f"로그인 실패. {failed_attempts + 1}/{MAX_LOGIN_ATTEMPTS}회 시도했습니다.")
 
                 return redirect(url_for('main.login'))

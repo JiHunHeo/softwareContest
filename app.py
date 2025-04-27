@@ -22,7 +22,6 @@ db_host = os.getenv('DB_HOST')
 db_name = os.getenv('DB_NAME')
 db_port = os.getenv('DB_PORT')
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:TIGtaUYtJUmbbtEXAGwWyuReGQNSCowP@metro.proxy.rlwy.net:56996/railway'
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
@@ -44,7 +43,7 @@ moment = Moment(app)
 # 사용자 로드 함수
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return User.query.get(user_id)  # int() 제거
 
 app.register_blueprint(main)
 
