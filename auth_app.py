@@ -18,8 +18,12 @@ db = SQLAlchemy(app)
 # 사용자(User) 테이블 모델 정의
 class User(db.Model):
     __tablename__ = 'users' 
-    # 로그인 아이디 (Primary Key, 중복 불가, 필수 입력)
-    user_id = db.Column(db.String(50), primary_key=True, nullable=False)
+
+    #DB기본 키
+    per_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+
+    # 로그인용 아이디 
+    user_id = db.Column(db.String(50), unique=True, nullable=False)
     
     # 사용자 이름 (필수 입력)
     username = db.Column(db.String(50), nullable=False)
