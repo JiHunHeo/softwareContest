@@ -1,21 +1,113 @@
 {% extends "base.html" %} {% block title %}메인 페이지{% endblock %} {% block content %}
-<h2>우선 배포를 위해 코드를 수정하였습니다!</h2>
-<h2>과제 제출 퐈이팅입니다 !!!</h2>
-<h2>학우 여러분 반갑습니다!</h2>
-<h2>팀장입니다 !</h2>
-<h2>박민희입니다 !</h2>
-<h2>강기동입니다 !</h2>
-<h2>김태형입니다 !</h2>
-<h2>김남영입니다 !</h2>
-<h2>이유정입니다 !</h2>
-<h2>김효정입니다 !</h2>
-<h2>25년 4월 7일 기준 깃헙 작업자 명단 ^^</h2>
-<h2>강기동 작업 완료</h2>
-<h2>김효정 작업 완료</h2>
-<h2>이유정 작업 완료</h2>
-<h2>Railway에 배포되는 중입니다 !</h2>
-<h2>더 열심히 해봅시다 !!!</h2>
-<h2 id="blinking-text" class="blink">경진대회 준비에 박차를 가해봅시다!</h2>
-<button onclick="stopBlinking()">반짝임 멈추기</button>
-<button onclick="startBlinking()">다시 반짝이게</button>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>자바칩 프로젝트 </title>
+</head>
+<body>
+
+<div class="right-panel">
+  <div class="banner">자바칩 조직도 및 연락처</div>
+
+  <div class="links">
+    <div class="link-item">
+      링크 1
+      <div class="mini-board">
+        <div class="mini-tabs">
+          <div class="mini-tab active" onclick="showMiniPosts('1학년')">1학년</div>
+          <div class="mini-tab" onclick="showMiniPosts('2학년')">2학년</div>
+          <div class="mini-tab" onclick="showMiniPosts('3학년')">3학년</div>
+          <div class="mini-tab" onclick="showMiniPosts('4학년')">4학년</div>
+        </div>
+        <div id="mini-posts"></div>
+        <div class="mini-buttons">
+          <button class="mini-button" onclick="alert('글쓰기 페이지로 이동')">글쓰기</button>
+          <button class="mini-button" onclick="alert('더보기 페이지로 이동')">더보기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="link-item">
+      링크 2
+      <div class="chat-box">
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input">
+          <input type="text" id="chat-input" placeholder="메시지를 입력하세요">
+          <button onclick="sendMessage()">전송</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="link-item">
+      링크 3
+      <div class="free-board-preview">
+        <h4>자바칩 당근마켓 </h4>
+        <div class="free-post">모바일 프로그래밍 앱 책 판매합니다. <span>2025-04-29</span></div>
+        <div class="free-post">코딩 능력을 삽니다 <span>2025-04-28</span></div>
+        <div class="free-post">무료 나눔합니다. <span>2025-04-27</span></div>
+      </div>
+    </div>
+
+    <div class="link-item">
+      링크 4
+      <div class="poll-box">
+        <h4>스터디는 꼭 해야할까 ?</h4>
+        <div class="poll-options">
+          <button class="poll-option" onclick="alert(' 투표 완료!')">네</button>
+          <button class="poll-option" onclick="alert(' 투표 완료!')">아니오</button>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const postsData = {
+  '1학년': [
+    { title: '1학년 OT 공지', date: '2025-04-29' },
+    { title: '프로그래밍 입문 수업 안내', date: '2025-04-28' }
+  ],
+  '2학년': [
+    { title: '2학년 중간고사 일정', date: '2025-04-29' },
+    { title: '웹개발 심화 프로젝트 안내', date: '2025-04-28' }
+  ],
+  '3학년': [
+    { title: '3학년 세미나 신청 안내', date: '2025-04-29' },
+    { title: '캡스톤 디자인 팀 모집', date: '2025-04-28' }
+  ],
+  '4학년': [
+    { title: '4학년 졸업논문 제출 공지', date: '2025-04-29' },
+    { title: '취업박람회 일정 안내', date: '2025-04-28' }
+  ]
+};
+
+function showMiniPosts(grade) {
+  const miniPostsContainer = document.getElementById('mini-posts');
+  const posts = postsData[grade];
+  miniPostsContainer.innerHTML = posts.map(post => `<div class="mini-post"><div>${post.title}</div><div>${post.date}</div></div>`).join('');
+  document.querySelectorAll('.mini-tab').forEach(tab => tab.classList.remove('active'));
+  document.querySelector(`.mini-tab:nth-child(${parseInt(grade[0])})`).classList.add('active');
+}
+
+function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const message = input.value.trim();
+  if (message !== '') {
+    const chatMessages = document.getElementById('chat-messages');
+    const newMessage = document.createElement('div');
+    newMessage.textContent = message;
+    chatMessages.appendChild(newMessage);
+    input.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+}
+
+showMiniPosts('1학년');
+</script>
+
+</body>
+</html>
+
 {% endblock %}

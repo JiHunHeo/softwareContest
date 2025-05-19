@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="/static/style.css" />
         <script src="/static/script.js" defer></script>
         <link rel="icon" href="/static/favicon.png" type="image/png" />
+  
     </head>
     <body>
         <div id="background">
@@ -23,14 +24,25 @@
         </div>
         <header>
             <nav>
-                <button onclick="location.href='/'">메인 페이지</button>
-                <button onclick="location.href='/about'">About 페이지</button>
-                <button onclick="location.href='/timeline'">프로젝트 타임라인 보기</button>
+                <button onclick="location.href='https://www.knou.ac.kr/knou/index.do?epTicket=LOG'">학교홈페이지</button>
+                <button onclick="location.href='/samplegrid'">로그인/회원가입</button>
+                <button onclick="location.href='/samplegrid'">MY PAGE</button>
+            
                 <!-- 타임라인 버튼 추가 -->
             </nav>
         </header>
+  
+   <div class="container"> 
+        <div class="left-panel">
+            {% block left_panel %}
+                   {% include 'left_panel.html' %}
+            {% endblock %}
+        </div>
         <main>
-            <section>{% block content %}{% endblock %}</section>
-        </main>
+          <section>{% block content %}{% endblock %}</section>
+      </main>
+      </div>
+        
     </body>
 </html>
+
