@@ -10,6 +10,9 @@ def home():
 @main.route('/about')
 def about():
     return render_template('about.html')
+@main.route('/market')
+def market():
+    return render_template('market.html')
 
 def get_commits_from_file(json_file):
     try:

@@ -1,0 +1,127 @@
+.left-panel {
+  position: relative;
+  width: 275px;
+  height: 927px;
+  background-color: #4965ac;
+  border-radius: 14.82px;
+  overflow: hidden;
+}
+
+.left-panel .statistics {
+  position: absolute;
+  width: 119px;
+  height: 28px;
+  top: 561px;
+  left: 48px;
+}
+
+.left-panel .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Orbitron-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 22.2px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.left-panel .security {
+  position: absolute;
+  width: 107px;
+  height: 28px;
+  top: 487px;
+  left: 48px;
+}
+
+.left-panel .market {
+  position: absolute;
+  width: 90px;
+  height: 28px;
+  top: 413px;
+  left: 48px;
+}
+
+.left-panel .home {
+  position: absolute;
+  width: 74px;
+  height: 28px;
+  top: 265px;
+  left: 48px;
+}
+
+.left-panel .community {
+  position: absolute;
+  width: 137px;
+  height: 28px;
+  top: 339px;
+  left: 48px;
+}
+
+.left-panel .log-out {
+  position: absolute;
+  width: 99px;
+  height: 28px;
+  top: 856px;
+  left: 48px;
+}
+
+.left-panel .clip-path-group {
+  position: absolute;
+  width: 177px;
+  height: 164px;
+  top: 47px;
+  left: 90px;
+}
+
+.left-panel .g {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  top: 68px;
+  left: 0;
+  background-image: url(./img/g-106.png);
+  background-size: 100% 100%;
+}
+
+.left-panel .element {
+  position: absolute;
+  width: 146px;
+  top: 21px;
+  left: 27px;
+  font-family: "Orbitron-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 14.8px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.left-panel .text-wrapper {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  font-family: "Orbitron-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 14.8px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+        .left-panel-button {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            width: 100%;
+            text-align: left;
+            display: block; /* 버튼이 블록 요소처럼 동작하여 전체 너비 차지 및 줄바꿈 */
+        }
+
+        .left-panel-button > div {
+            padding: 10px; /* 클릭 영역 확보 및 시각적 간격 */
+        }
