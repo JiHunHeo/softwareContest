@@ -9,14 +9,13 @@ body {
     display: flex; /* body를 flex 컨테이너로 설정 */
     min-height: 100vh; /* 최소 높이를 뷰포트 높이로 설정하여 footer가 항상 하단에 있도록 (선택 사항) */
     flex-direction: column;
-
 }
 header {
     /* 기존 헤더 스타일 유지 */
     padding: 10px;
     background-color: none;
     border-bottom: 1px solid #eee;
-       top: 0;
+    top: 0;
     right: 0;
     width: 100%; /* 필요에 따라 너비 조정 */
     z-index: 10; /* 다른 요소 위에 표시 */
@@ -73,7 +72,6 @@ nav button:hover {
     flex: 1;
     margin-top: 60px; /* header 높이 + 약간의 간격 고려 */
 }
-
 
 /* 꽃잎 애니메이션 */
 @keyframes fall {
@@ -234,45 +232,51 @@ ol li ul li {
     }
 }
 
-.container { /* 왼쪽과 오른쪽 판넬을 감싸는 부모 요소 */
+.container {
+    /* 왼쪽과 오른쪽 판넬을 감싸는 부모 요소 */
     display: flex;
     width: 100%; /* 필요에 따라 너비 조정 */
 }
 
-  .right-panel {
+.right-panel {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
-    
-  }
+}
 
-  .profile {
+.profile {
     background: white;
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
     text-align: center;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  }
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
-  .profile-img {
-    width: 100px; height: 100px;
+.profile-img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
-  }
+}
 
-  .board {
+.board {
     background: white;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  }
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
-  .board ul { list-style: none; }
-  .board li { padding: 8px 0; border-bottom: 1px solid #ddd; }
+.board ul {
+    list-style: none;
+}
+.board li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
 
-  .banner {
+.banner {
     background: #0077cc;
     color: white;
     padding: 30px;
@@ -280,42 +284,73 @@ ol li ul li {
     margin-bottom: 20px;
     font-size: 24px;
     text-align: center;
-  }
+}
 
-  .links {
+.links {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-  }
+}
 
-  .link-item {
+.link-item {
     background: #eee;
     padding: 20px;
     border-radius: 10px;
     font-weight: bold;
     text-align: center;
     position: relative;
-  }
+}
 
-  .link-item:hover { background: #ddd; }
+.link-item:hover {
+    background: #ddd;
+}
 
-  .mini-board, .chat-box, .free-board-preview, .poll-box {
+.mini-board,
+.chat-box,
+.free-board-preview,
+.poll-box {
     margin-top: 20px;
     background: #fff;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     font-size: 12px;
-  }
+}
 
-  .mini-tabs { display: flex; gap: 5px; margin-bottom: 10px; }
-  .mini-tab { padding: 5px 10px; background: #ccc; border-radius: 5px; cursor: pointer; font-size: 12px; }
-  .mini-tab.active { background: #0077cc; color: white; }
+.mini-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.mini-tab {
+    padding: 5px 10px;
+    background: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.mini-tab.active {
+    background: #0077cc;
+    color: white;
+}
 
-  .mini-post, .free-post { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #eee; }
-  .mini-buttons, .poll-options { display: flex; justify-content: space-between; margin-top: 10px; }
+.mini-post,
+.free-post {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+.mini-buttons,
+.poll-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
 
-  .mini-button, .chat-input button, .poll-option {
+.mini-button,
+.chat-input button,
+.poll-option {
     background: #0077cc;
     color: white;
     border: none;
@@ -323,13 +358,24 @@ ol li ul li {
     border-radius: 5px;
     cursor: pointer;
     font-size: 12px;
-  }
+}
 
-  .chat-messages { height: 100px; overflow-y: auto; margin-bottom: 10px; font-size: 12px; }
-  .chat-input { display: flex; gap: 5px; }
-  .chat-input input { flex: 1; padding: 5px; font-size: 12px; }
------------------------------------------------------------------------------------
-.search-tab__sort-option.is-active {
+.chat-messages {
+    height: 100px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.chat-input {
+    display: flex;
+    gap: 5px;
+}
+.chat-input input {
+    flex: 1;
+    padding: 5px;
+    font-size: 12px;
+}
+----------------------------------------------------------------------------------- .search-tab__sort-option.is-active {
     color: var(--tenDown);
     font-family: var(--weight-700);
 }
@@ -338,50 +384,49 @@ ol li ul li {
     cursor: pointer;
 }
 
-<!----------------------------------------------------------마켓start----------------------------------------------------------------------------------------------------->
-.container {
+<!----------------------------------------------------------마켓start----------------------------------------------------------------------------------------------------- > .container {
     width: 909px;
     height: 1290px;
-  }
-  
-  .container .main {
+}
+
+.container .main {
     position: relative;
     width: 870px;
     height: 1285px;
     left: 18px;
-  }
-  
-  .container .link {
+}
+
+.container .link {
     position: absolute;
     width: 71px;
     height: 24px;
     top: 6px;
     left: 8px;
-  }
-  
-  .container .text-wrapper {
+}
+
+.container .text-wrapper {
     position: absolute;
     width: 71px;
     top: 1px;
     left: 0;
-    font-family: "Noto Sans KR-Bold", Helvetica;
+    font-family: 'Noto Sans KR-Bold', Helvetica;
     font-weight: 700;
     color: #1f1f1f;
     font-size: 18.8px;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 20px;
     white-space: nowrap;
-  }
-  
-  .container .list {
+}
+
+.container .list {
     position: absolute;
     width: 855px;
     height: 38px;
     top: 52px;
     left: 8px;
-  }
-  
-  .container .item {
+}
+
+.container .item {
     width: 51px;
     height: 32px;
     left: 0;
@@ -390,31 +435,31 @@ ol li ul li {
     border: 1px solid;
     position: absolute;
     top: 0;
-  }
-  
-  .container .div-wrapper {
+}
+
+.container .div-wrapper {
     position: relative;
     width: 49px;
     height: 30px;
     top: 1px;
     left: 1px;
-  }
-  
-  .container .div {
+}
+
+.container .div {
     position: absolute;
     width: 23px;
     top: 5px;
     left: 14px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #ffffff;
     font-size: 12.4px;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     white-space: nowrap;
-  }
-  
-  .container .link-wrapper {
+}
+
+.container .link-wrapper {
     width: 51px;
     height: 32px;
     left: 58px;
@@ -423,23 +468,23 @@ ol li ul li {
     border-color: #cccccc;
     position: absolute;
     top: 0;
-  }
-  
-  .container .text-wrapper-2 {
+}
+
+.container .text-wrapper-2 {
     position: absolute;
     width: 23px;
     top: 5px;
     left: 14px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #1f1f1f;
     font-size: 12.4px;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     white-space: nowrap;
-  }
-  
-  .container .item-2 {
+}
+
+.container .item-2 {
     width: 51px;
     height: 32px;
     left: 116px;
@@ -448,9 +493,9 @@ ol li ul li {
     border-color: #cccccc;
     position: absolute;
     top: 0;
-  }
-  
-  .container .item-3 {
+}
+
+.container .item-3 {
     width: 78px;
     height: 32px;
     left: 174px;
@@ -459,53 +504,53 @@ ol li ul li {
     border-color: #cccccc;
     position: absolute;
     top: 0;
-  }
-  
-  .container .link-2 {
+}
+
+.container .link-2 {
     position: relative;
     width: 76px;
     height: 30px;
     top: 1px;
     left: 1px;
-  }
-  
-  .container .text-wrapper-3 {
+}
+
+.container .text-wrapper-3 {
     position: absolute;
     width: 49px;
     top: 5px;
     left: 14px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #1f1f1f;
     font-size: 12.4px;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     white-space: nowrap;
-  }
-  
-  .container .overlap {
+}
+
+.container .overlap {
     position: absolute;
     width: 900px;
     height: 1213px;
     top: 98px;
     left: -18px;
-  }
-  
-  .container .table {
+}
+
+.container .table {
     position: absolute;
     width: 863px;
     height: 1101px;
     top: 0;
     left: 18px;
     overflow: scroll;
-  }
-  
-  .container .table::-webkit-scrollbar {
+}
+
+.container .table::-webkit-scrollbar {
     width: 0;
     display: none;
-  }
-  
-  .container .header-row {
+}
+
+.container .header-row {
     position: relative;
     width: 862px;
     height: 50px;
@@ -514,113 +559,113 @@ ol li ul li {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-color: #f4f4f4;
-  }
-  
-  .container .cell {
+}
+
+.container .cell {
     top: 15px;
     left: 35px;
-    font-family: "Noto Sans KR-Bold", Helvetica;
+    font-family: 'Noto Sans KR-Bold', Helvetica;
     font-weight: 700;
     color: #1f1f1f;
     font-size: 13.8px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 15px;
     white-space: nowrap;
     position: absolute;
     width: 25px;
-  }
-  
-  .container .cell-link {
+}
+
+.container .cell-link {
     height: 18px;
     top: 16px;
     left: 387px;
     position: absolute;
     width: 25px;
-  }
-  
-  .container .text-wrapper-4 {
+}
+
+.container .text-wrapper-4 {
     position: absolute;
     width: 25px;
     top: -1px;
     left: 0;
-    font-family: "Noto Sans KR-Bold", Helvetica;
+    font-family: 'Noto Sans KR-Bold', Helvetica;
     font-weight: 700;
     color: #1f1f1f;
     font-size: 13.8px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 15px;
     white-space: nowrap;
-  }
-  
-  .container .list-2 {
+}
+
+.container .list-2 {
     position: absolute;
     width: 900px;
     height: 1163px;
     top: 50px;
     left: 0;
-  }
-  
-  .container .item-link {
+}
+
+.container .item-link {
     width: 260px;
     height: 336px;
     left: 20px;
     position: absolute;
     top: 0;
-  }
-  
-  .container .div-wrapper-2 {
+}
+
+.container .div-wrapper-2 {
     position: absolute;
     width: 260px;
     height: 55px;
     top: 260px;
     left: 0;
-  }
-  
-  .container .text-wrapper-5 {
+}
+
+.container .text-wrapper-5 {
     position: absolute;
     width: 232px;
     top: 13px;
     left: 0;
-    font-family: "Noto Sans KR-Regular", Helvetica;
+    font-family: 'Noto Sans KR-Regular', Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-6 {
+}
+
+.container .text-wrapper-6 {
     position: absolute;
     width: 27px;
     top: 317px;
     left: 0;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #ff3131;
     font-size: 13px;
     letter-spacing: 0;
     line-height: 20.8px;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-7 {
+}
+
+.container .text-wrapper-7 {
     position: absolute;
     width: 43px;
     top: 317px;
     left: 34px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 13px;
     letter-spacing: 0;
     line-height: 20.8px;
     white-space: nowrap;
-  }
-  
-  .container .overlap-group {
+}
+
+.container .overlap-group {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -629,22 +674,22 @@ ol li ul li {
     background-image: url(./img/frame-2.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .overlay {
+}
+
+.container .overlay {
     height: 260px;
     background-color: #00000005;
-  }
-  
-  .container .item-link-2 {
+}
+
+.container .item-link-2 {
     top: 0;
     left: 320px;
     position: absolute;
     width: 260px;
     height: 336px;
-  }
-  
-  .container .overlay-wrapper {
+}
+
+.container .overlay-wrapper {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -653,79 +698,79 @@ ol li ul li {
     background-image: url(./img/image.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .overlap-group-2 {
+}
+
+.container .overlap-group-2 {
     width: 250px;
     height: 32px;
     position: relative;
     top: 13px;
-  }
-  
-  .container .text-wrapper-8 {
+}
+
+.container .text-wrapper-8 {
     position: absolute;
     width: 250px;
     top: 0;
     left: 0;
-    font-family: "Noto Sans KR-Regular", Helvetica;
+    font-family: 'Noto Sans KR-Regular', Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
-  }
-  
-  .container .text-wrapper-9 {
+}
+
+.container .text-wrapper-9 {
     top: 4px;
     left: 130px;
     position: absolute;
     width: 22px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #3f75ff;
     font-size: 10px;
     letter-spacing: -0.28px;
     line-height: 10px;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-10 {
+}
+
+.container .text-wrapper-10 {
     position: absolute;
     width: 43px;
     top: 317px;
     left: 0;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 13px;
     letter-spacing: 0;
     line-height: 20.8px;
     white-space: nowrap;
-  }
-  
-  .container .item-link-3 {
+}
+
+.container .item-link-3 {
     top: 0;
     left: 620px;
     position: absolute;
     width: 260px;
     height: 336px;
-  }
-  
-  .container .text-wrapper-11 {
+}
+
+.container .text-wrapper-11 {
     position: absolute;
     width: 163px;
     top: 13px;
     left: 0;
-    font-family: "Noto Sans KR-Regular", Helvetica;
+    font-family: 'Noto Sans KR-Regular', Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
     white-space: nowrap;
-  }
-  
-  .container .overlap-2 {
+}
+
+.container .overlap-2 {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -734,35 +779,35 @@ ol li ul li {
     background-image: url(./img/image-2.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .item-link-4 {
+}
+
+.container .item-link-4 {
     top: 370px;
     left: 20px;
     position: absolute;
     width: 260px;
     height: 336px;
-  }
-  
-  .container .text-wrapper-12 {
+}
+
+.container .text-wrapper-12 {
     position: absolute;
     width: 175px;
     top: 13px;
     left: 0;
-    font-family: "Noto Sans KR-Regular", Helvetica;
+    font-family: 'Noto Sans KR-Regular', Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-13 {
+}
+
+.container .text-wrapper-13 {
     width: 23px;
     top: 317px;
     left: 34px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 13px;
@@ -770,9 +815,9 @@ ol li ul li {
     line-height: 20.8px;
     position: absolute;
     white-space: nowrap;
-  }
-  
-  .container .overlap-3 {
+}
+
+.container .overlap-3 {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -781,17 +826,17 @@ ol li ul li {
     background-image: url(./img/image-4.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .item-link-5 {
+}
+
+.container .item-link-5 {
     top: 370px;
     left: 320px;
     position: absolute;
     width: 260px;
     height: 336px;
-  }
-  
-  .container .overlap-4 {
+}
+
+.container .overlap-4 {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -800,52 +845,52 @@ ol li ul li {
     background-image: url(./img/frame.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .overlap-group-3 {
+}
+
+.container .overlap-group-3 {
     width: 148px;
     height: 14px;
     position: relative;
     top: 13px;
-  }
-  
-  .container .text-wrapper-14 {
+}
+
+.container .text-wrapper-14 {
     position: absolute;
     width: 127px;
     top: 0;
     left: 0;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-15 {
+}
+
+.container .text-wrapper-15 {
     top: 3px;
     left: 127px;
     position: absolute;
     width: 22px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #3f75ff;
     font-size: 10px;
     letter-spacing: -0.28px;
     line-height: 10px;
     white-space: nowrap;
-  }
-  
-  .container .item-link-6 {
+}
+
+.container .item-link-6 {
     top: 370px;
     left: 620px;
     position: absolute;
     width: 260px;
     height: 336px;
-  }
-  
-  .container .overlap-5 {
+}
+
+.container .overlap-5 {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -854,65 +899,65 @@ ol li ul li {
     background-image: url(./img/image-3.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .overlap-group-4 {
+}
+
+.container .overlap-group-4 {
     width: 170px;
     height: 14px;
     position: relative;
     top: 13px;
-  }
-  
-  .container .text-wrapper-16 {
+}
+
+.container .text-wrapper-16 {
     position: absolute;
     width: 149px;
     top: 0;
     left: 0;
-    font-family: "Noto Sans KR-Regular", Helvetica;
+    font-family: 'Noto Sans KR-Regular', Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-17 {
+}
+
+.container .text-wrapper-17 {
     top: 3px;
     left: 149px;
     position: absolute;
     width: 22px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #3f75ff;
     font-size: 10px;
     letter-spacing: -0.28px;
     line-height: 10px;
     white-space: nowrap;
-  }
-  
-  .container .item-link-7 {
+}
+
+.container .item-link-7 {
     top: 740px;
     left: 20px;
     position: absolute;
     width: 260px;
     height: 336px;
-  }
-  
-  .container .text-wrapper-18 {
+}
+
+.container .text-wrapper-18 {
     position: absolute;
     width: 255px;
     top: 13px;
     left: 0;
-    font-family: "Noto Sans KR-Regular", Helvetica;
+    font-family: 'Noto Sans KR-Regular', Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
-  }
-  
-  .container .overlap-6 {
+}
+
+.container .overlap-6 {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -921,45 +966,45 @@ ol li ul li {
     background-image: url(./img/x.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .item-link-8 {
+}
+
+.container .item-link-8 {
     top: 740px;
     left: 320px;
     position: absolute;
     width: 260px;
     height: 336px;
-  }
-  
-  .container .text-wrapper-19 {
+}
+
+.container .text-wrapper-19 {
     position: absolute;
     width: 193px;
     top: 13px;
     left: 0;
-    font-family: "Noto Sans KR-Regular", Helvetica;
+    font-family: 'Noto Sans KR-Regular', Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-20 {
+}
+
+.container .text-wrapper-20 {
     position: absolute;
     width: 35px;
     top: 317px;
     left: 34px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 13px;
     letter-spacing: 0;
     line-height: 20.8px;
     white-space: nowrap;
-  }
-  
-  .container .overlap-7 {
+}
+
+.container .overlap-7 {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -968,17 +1013,17 @@ ol li ul li {
     background-image: url(./img/image-5.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .item-link-9 {
+}
+
+.container .item-link-9 {
     top: 740px;
     left: 620px;
     position: absolute;
     width: 260px;
     height: 336px;
-  }
-  
-  .container .overlap-8 {
+}
+
+.container .overlap-8 {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -987,44 +1032,44 @@ ol li ul li {
     background-image: url(./img/x-2.png);
     background-size: cover;
     background-position: 50% 50%;
-  }
-  
-  .container .overlap-group-5 {
+}
+
+.container .overlap-group-5 {
     width: 242px;
     height: 17px;
     position: relative;
     top: 13px;
-  }
-  
-  .container .text-wrapper-21 {
+}
+
+.container .text-wrapper-21 {
     position: absolute;
     width: 242px;
     top: 0;
     left: 0;
-    font-family: "Noto Sans KR-Regular", Helvetica;
+    font-family: 'Noto Sans KR-Regular', Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 14px;
     letter-spacing: -0.28px;
     line-height: 18.1px;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-22 {
+}
+
+.container .text-wrapper-22 {
     top: 7px;
     left: 89px;
     position: absolute;
     width: 22px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #3f75ff;
     font-size: 10px;
     letter-spacing: -0.28px;
     line-height: 10px;
     white-space: nowrap;
-  }
-  
-  .container .link-3 {
+}
+
+.container .link-3 {
     position: absolute;
     width: 55px;
     height: 30px;
@@ -1032,47 +1077,47 @@ ol li ul li {
     left: 107px;
     background-color: #1e90ff;
     border-radius: 30px;
-  }
-  
-  .container .text-wrapper-23 {
+}
+
+.container .text-wrapper-23 {
     position: absolute;
     width: 25px;
     top: 5px;
     left: 15px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #ffffff;
     font-size: 13.8px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 30px;
     white-space: nowrap;
-  }
-  
-  .container .link-4 {
+}
+
+.container .link-4 {
     position: absolute;
     width: 43px;
     height: 16px;
     top: 1151px;
     left: 246px;
-  }
-  
-  .container .text-wrapper-24 {
+}
+
+.container .text-wrapper-24 {
     position: absolute;
     width: 23px;
     top: -1px;
     left: 10px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #cccccc;
     font-size: 12.4px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     white-space: nowrap;
-  }
-  
-  .container .link-5 {
+}
+
+.container .link-5 {
     position: absolute;
     width: 27px;
     height: 27px;
@@ -1080,504 +1125,504 @@ ol li ul li {
     left: 292px;
     background-color: #1e90ff;
     border-radius: 40.5px;
-  }
-  
-  .container .text-wrapper-25 {
+}
+
+.container .text-wrapper-25 {
     width: 6px;
     top: 4px;
     left: 11px;
-    font-family: "Noto Sans KR-Bold", Helvetica;
+    font-family: 'Noto Sans KR-Bold', Helvetica;
     font-weight: 700;
     color: #ffffff;
     font-size: 13.1px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     position: absolute;
     white-space: nowrap;
-  }
-  
-  .container .link-6 {
+}
+
+.container .link-6 {
     position: absolute;
     width: 21px;
     height: 27px;
     top: 1146px;
     left: 322px;
-  }
-  
-  .container .text-wrapper-26 {
+}
+
+.container .text-wrapper-26 {
     width: 8px;
     top: 4px;
     left: 7px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 13.5px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     position: absolute;
     white-space: nowrap;
-  }
-  
-  .container .link-7 {
+}
+
+.container .link-7 {
     position: absolute;
     width: 21px;
     height: 27px;
     top: 1146px;
     left: 345px;
-  }
-  
-  .container .link-8 {
+}
+
+.container .link-8 {
     position: absolute;
     width: 21px;
     height: 27px;
     top: 1146px;
     left: 370px;
-  }
-  
-  .container .link-9 {
+}
+
+.container .link-9 {
     position: absolute;
     width: 21px;
     height: 27px;
     top: 1146px;
     left: 394px;
-  }
-  
-  .container .link-10 {
+}
+
+.container .link-10 {
     position: absolute;
     width: 21px;
     height: 27px;
     top: 1146px;
     left: 418px;
-  }
-  
-  .container .link-11 {
+}
+
+.container .link-11 {
     position: absolute;
     width: 20px;
     height: 27px;
     top: 1146px;
     left: 442px;
-  }
-  
-  .container .text-wrapper-27 {
+}
+
+.container .text-wrapper-27 {
     width: 7px;
     top: 4px;
     left: 7px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 13.5px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     position: absolute;
     white-space: nowrap;
-  }
-  
-  .container .link-12 {
+}
+
+.container .link-12 {
     position: absolute;
     width: 21px;
     height: 27px;
     top: 1146px;
     left: 465px;
-  }
-  
-  .container .link-13 {
+}
+
+.container .link-13 {
     position: absolute;
     width: 21px;
     height: 27px;
     top: 1146px;
     left: 490px;
-  }
-  
-  .container .link-14 {
+}
+
+.container .link-14 {
     position: absolute;
     width: 26px;
     height: 27px;
     top: 1146px;
     left: 514px;
-  }
-  
-  .container .text-wrapper-28 {
+}
+
+.container .text-wrapper-28 {
     width: 13px;
     top: 4px;
     left: 7px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 12.4px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     position: absolute;
     white-space: nowrap;
-  }
-  
-  .container .text-wrapper-29 {
+}
+
+.container .text-wrapper-29 {
     position: absolute;
     width: 9px;
     top: 1145px;
     left: 550px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 13.5px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     white-space: nowrap;
-  }
-  
-  .container .link-15 {
+}
+
+.container .link-15 {
     position: absolute;
     width: 49px;
     height: 27px;
     top: 1146px;
     left: 568px;
-  }
-  
-  .container .text-wrapper-30 {
+}
+
+.container .text-wrapper-30 {
     width: 36px;
     top: 4px;
     left: 7px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 13.5px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     position: absolute;
     white-space: nowrap;
-  }
-  
-  .container .link-16 {
+}
+
+.container .link-16 {
     position: absolute;
     width: 43px;
     height: 16px;
     top: 1151px;
     left: 617px;
-  }
-  
-  .container .text-wrapper-31 {
+}
+
+.container .text-wrapper-31 {
     position: absolute;
     width: 23px;
     top: -1px;
     left: 10px;
-    font-family: "Noto Sans KR-DemiLight", Helvetica;
+    font-family: 'Noto Sans KR-DemiLight', Helvetica;
     font-weight: 300;
     color: #333333;
     font-size: 12.4px;
     text-align: center;
-    letter-spacing: -0.50px;
+    letter-spacing: -0.5px;
     line-height: 27px;
     white-space: nowrap;
-  }
-<!----------------------------------------------------------마켓end----------------------------------------------------------------------------------------------------->
+}
+/* <!----------------------------------------------------------마켓end----------------------------------------------------------------------------------------------------->
 
-<!----------------------------------------------------------left panel start-------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------left panel start--------------------------------------------------------------------------------------------> */
 .left-panel {
-  width: 371px;
-  height: 1251px;
-  background-color: #4965ac;
-  border-radius: 20px;
-  overflow: hidden;
+    width: 371px;
+    height: 1251px;
+    background-color: #4965ac;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .left-panel .overlap {
-  position: relative;
-  width: 2849px;
-  height: 1675px;
-  top: -196px;
-  left: -422px;
+    position: relative;
+    width: 2849px;
+    height: 1675px;
+    top: -196px;
+    left: -422px;
 }
 
 .left-panel .overlap-group-wrapper {
-  position: absolute;
-  width: 2849px;
-  height: 1666px;
-  top: 9px;
-  left: 0;
+    position: absolute;
+    width: 2849px;
+    height: 1666px;
+    top: 9px;
+    left: 0;
 }
 
 .left-panel .overlap-group {
-  position: relative;
-  width: 2847px;
-  height: 1666px;
-  background-image: url(./img/clip-path-group-4.png);
-  background-size: 100% 100%;
+    position: relative;
+    width: 2847px;
+    height: 1666px;
+    background-image: url(./img/clip-path-group-4.png);
+    background-size: 100% 100%;
 }
 
 .left-panel .text {
-  position: absolute;
-  top: 716px;
-  left: 547px;
-  font-family: "Orbitron-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
+    position: absolute;
+    top: 716px;
+    left: 547px;
+    font-family: 'Orbitron-Regular', Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .left-panel .text-wrapper {
-  position: relative;
-  width: 2847px;
-  height: 1666px;
-  background-image: url(./img/clip-path-group-3.png);
-  background-size: 100% 100%;
+    position: relative;
+    width: 2847px;
+    height: 1666px;
+    background-image: url(./img/clip-path-group-3.png);
+    background-size: 100% 100%;
 }
 
 .left-panel .div {
-  position: absolute;
-  top: 817px;
-  left: 547px;
-  font-family: "Orbitron-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
+    position: absolute;
+    top: 817px;
+    left: 547px;
+    font-family: 'Orbitron-Regular', Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .left-panel .div-wrapper {
-  position: relative;
-  width: 2847px;
-  height: 1666px;
-  background-image: url(./img/clip-path-group-2.png);
-  background-size: 100% 100%;
+    position: relative;
+    width: 2847px;
+    height: 1666px;
+    background-image: url(./img/clip-path-group-2.png);
+    background-size: 100% 100%;
 }
 
 .left-panel .text-2 {
-  position: absolute;
-  width: 105px;
-  top: 909px;
-  left: 547px;
-  font-family: "Orbitron-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
+    position: absolute;
+    width: 105px;
+    top: 909px;
+    left: 547px;
+    font-family: 'Orbitron-Regular', Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .left-panel .overlap-2 {
-  position: relative;
-  width: 2847px;
-  height: 1666px;
-  background-image: url(./img/clip-path-group.png);
-  background-size: 100% 100%;
+    position: relative;
+    width: 2847px;
+    height: 1666px;
+    background-image: url(./img/clip-path-group.png);
+    background-size: 100% 100%;
 }
 
 .left-panel .text-3 {
-  position: absolute;
-  top: 1117px;
-  left: 547px;
-  font-family: "Orbitron-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
+    position: absolute;
+    top: 1117px;
+    left: 547px;
+    font-family: 'Orbitron-Regular', Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .left-panel .overlap-3 {
-  position: relative;
-  width: 2847px;
-  height: 1666px;
-  background-image: url(./img/image.png);
-  background-size: 100% 100%;
+    position: relative;
+    width: 2847px;
+    height: 1666px;
+    background-image: url(./img/image.png);
+    background-size: 100% 100%;
 }
 
 .left-panel .text-4 {
-  position: absolute;
-  top: 1017px;
-  left: 547px;
-  font-family: "Orbitron-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
+    position: absolute;
+    top: 1017px;
+    left: 547px;
+    font-family: 'Orbitron-Regular', Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .left-panel .log-out {
-  position: absolute;
-  width: 132px;
-  height: 32px;
-  top: 1394px;
-  left: 489px;
+    position: absolute;
+    width: 132px;
+    height: 32px;
+    top: 1394px;
+    left: 489px;
 }
 
 .left-panel .overlap-4 {
-  position: absolute;
-  width: 33px;
-  height: 26px;
-  top: 3px;
-  left: 0;
+    position: absolute;
+    width: 33px;
+    height: 26px;
+    top: 3px;
+    left: 0;
 }
 
 .left-panel .overlap-5 {
-  position: absolute;
-  width: 33px;
-  height: 26px;
-  top: 0;
-  left: 0;
+    position: absolute;
+    width: 33px;
+    height: 26px;
+    top: 0;
+    left: 0;
 }
 
 .left-panel .g {
-  position: absolute;
-  width: 18px;
-  height: 26px;
-  top: 0;
-  left: 0;
+    position: absolute;
+    width: 18px;
+    height: 26px;
+    top: 0;
+    left: 0;
 }
 
 .left-panel .img {
-  position: absolute;
-  width: 23px;
-  height: 7px;
-  top: 13px;
-  left: 10px;
+    position: absolute;
+    width: 23px;
+    height: 7px;
+    top: 13px;
+    left: 10px;
 }
 
 .left-panel .g-2 {
-  position: absolute;
-  width: 9px;
-  height: 7px;
-  top: 6px;
-  left: 23px;
+    position: absolute;
+    width: 9px;
+    height: 7px;
+    top: 6px;
+    left: 23px;
 }
 
 .left-panel .text-5 {
-  position: absolute;
-  width: 71px;
-  top: 0;
-  left: 58px;
-  font-family: "Open Sans-CondensedRegular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 9.3px;
-  letter-spacing: 0;
-  line-height: normal;
+    position: absolute;
+    width: 71px;
+    top: 0;
+    left: 58px;
+    font-family: 'Open Sans-CondensedRegular', Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 9.3px;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .left-panel .clip-path-group {
-  position: absolute;
-  width: 2847px;
-  height: 1666px;
-  top: 0;
-  left: 0;
+    position: absolute;
+    width: 2847px;
+    height: 1666px;
+    top: 0;
+    left: 0;
 }
-<!----------------------------------------------------------left panel end---------------------------------------------------------------------------------------------->
+/* <!----------------------------------------------------------left panel end---------------------------------------------------------------------------------------------->
 
 
-<!----------------------------------------------------------left panel start-------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------left panel start--------------------------------------------------------------------------------------------> */
 .header {
-  width: 1920px;
-  height: 117px;
-  background-color: #ffffff;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #e0e0e0;
+    width: 1920px;
+    height: 117px;
+    background-color: #ffffff;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #e0e0e0;
 }
 
 .header .container {
-  position: relative;
-  width: 1200px;
-  height: 88px;
-  top: 16px;
-  left: 360px;
+    position: relative;
+    width: 1200px;
+    height: 88px;
+    top: 16px;
+    left: 360px;
 }
 
 .header .link {
-  position: absolute;
-  width: 36px;
-  height: 39px;
-  top: 2px;
-  left: 1060px;
+    position: absolute;
+    width: 36px;
+    height: 39px;
+    top: 2px;
+    left: 1060px;
 }
 
 .header .div {
-  position: absolute;
-  width: 36px;
-  height: 39px;
-  top: 2px;
-  left: 1104px;
+    position: absolute;
+    width: 36px;
+    height: 39px;
+    top: 2px;
+    left: 1104px;
 }
 
 .header .link-2 {
-  position: absolute;
-  width: 36px;
-  height: 41px;
-  top: 2px;
-  left: 1148px;
-  border-radius: 8px;
+    position: absolute;
+    width: 36px;
+    height: 41px;
+    top: 2px;
+    left: 1148px;
+    border-radius: 8px;
 }
 
 .header .overlap-group {
-  position: absolute;
-  width: 135px;
-  height: 36px;
-  top: 3px;
-  left: 898px;
+    position: absolute;
+    width: 135px;
+    height: 36px;
+    top: 3px;
+    left: 898px;
 }
 
 .header .div-wrapper {
-  position: absolute;
-  width: 71px;
-  height: 36px;
-  top: 0;
-  left: 0;
+    position: absolute;
+    width: 71px;
+    height: 36px;
+    top: 0;
+    left: 0;
 }
 
 .header .text-wrapper {
-  position: absolute;
-  width: 107px;
-  top: 7px;
-  left: -43px;
-  font-family: "Inter-Black", Helvetica;
-  font-weight: 900;
-  color: #666666;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: 20px;
-  white-space: nowrap;
+    position: absolute;
+    width: 107px;
+    top: 7px;
+    left: -43px;
+    font-family: 'Inter-Black', Helvetica;
+    font-weight: 900;
+    color: #666666;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+    white-space: nowrap;
 }
 
 .header .link-3 {
-  position: absolute;
-  width: 71px;
-  height: 36px;
-  top: 0;
-  left: 64px;
+    position: absolute;
+    width: 71px;
+    height: 36px;
+    top: 0;
+    left: 64px;
 }
 
 .header .text-wrapper-2 {
-  width: 97px;
-  top: 7px;
-  left: 8px;
-  font-family: "Inter-Black", Helvetica;
-  font-weight: 900;
-  color: #666666;
-  font-size: 15px;
-  line-height: 20px;
-  white-space: nowrap;
-  position: absolute;
-  letter-spacing: 0;
+    width: 97px;
+    top: 7px;
+    left: 8px;
+    font-family: 'Inter-Black', Helvetica;
+    font-weight: 900;
+    color: #666666;
+    font-size: 15px;
+    line-height: 20px;
+    white-space: nowrap;
+    position: absolute;
+    letter-spacing: 0;
 }
 
 .header .text-wrapper-3 {
-  width: 281px;
-  top: -2px;
-  left: 12px;
-  font-family: "Noto Sans KR-Bold", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 30px;
-  line-height: normal;
-  position: absolute;
-  letter-spacing: 0;
+    width: 281px;
+    top: -2px;
+    left: 12px;
+    font-family: 'Noto Sans KR-Bold', Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 30px;
+    line-height: normal;
+    position: absolute;
+    letter-spacing: 0;
 }
-<!----------------------------------------------------------left panel end---------------------------------------------------------------------------------------------->
+/* <!----------------------------------------------------------left panel end----------------------------------------------------------------------------------------------> */
