@@ -1,0 +1,20 @@
+<!-- filepath: c:\KNOU_HJH\softwareContest\main\templates\board.html -->
+{% extends "base.html" %} {% block title %}{{ board_type }}{% endblock %} {% block content %}
+<section>
+    <h1>{{ board_type }}</h1>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a href="{{ url_for('main.post_detail', post_id=post.id) }}">{{ post.title }}</a>
+            <p>작성일: {{ post.created_at }}</p>
+            {% if board_type == '중고 게시판' %}
+            <p>가격: {{ post.price }}원</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('main.new_post', board_type=board_type) }}">
+        <button>새 글 작성</button>
+    </a>
+</section>
+{% endblock %}

@@ -3,17 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{% block title %}경진대회{% endblock %}</title>
-        <link rel="stylesheet" href="/static/style.css" />
-        <script src="/static/script.js" defer></script>
-        <link rel="icon" href="/static/favicon.png" type="image/png" />
+        <title>{% block title %}소프트웨어 콘테스트{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
     </head>
     <body>
         <div id="background">
-            <!-- 꽃잎 요소 -->
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
             <div class="petal"></div>
             <div class="petal"></div>
             <div class="petal"></div>

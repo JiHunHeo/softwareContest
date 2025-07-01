@@ -1,0 +1,15 @@
+<!-- filepath: c:\KNOU_HJH\softwareContest\main\templates\profile.html -->
+{% extends "base.html" %} {% block title %}프로필{% endblock %} {% block content %}
+<section>
+    <h1>프로필</h1>
+    <p><strong>아이디:</strong> {{ user.user_id }}</p>
+    <p><strong>이름:</strong> {{ user.username }}</p>
+    <p><strong>생년월일:</strong> {{ user.birthdate }}</p>
+    <p><strong>학년:</strong> {{ user.grade }}</p>
+    <p><strong>학번:</strong> {{ user.student_id }}</p>
+    <p><strong>휴대폰 번호:</strong> {{ user.phone_number }}</p>
+    <p><strong>주소:</strong> {{ user.address }}</p>
+    <p><strong>직장인 여부:</strong> {{ '예' if user.is_employed else '아니오' }}</p>
+    <p><strong>가입일:</strong> {{ user.created_at }}</p>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!-- filepath: c:\KNOU_HJH\softwareContest\main\templates\post_detail.html -->
+{% extends "base.html" %} {% block title %}{{ post.title }}{% endblock %} {% block content %}
+<section>
+    <h1>{{ post.title }}</h1>
+    <p>작성자: {{ post.author.username }}</p>
+    <p>작성일: {{ post.created_at }}</p>
+    <hr />
+    <p>{{ post.content }}</p>
+    {% if post.board_type == '중고 게시판' %}
+    <p>상태: {{ post.status }}</p>
+    <p>가격: {{ post.price }}원</p>
+    {% endif %}
+    <hr />
+    <h2>댓글</h2>
+    <ul>
+        {% for comment in post.comments %}
+        <li><strong>{{ comment.author.username }}</strong>: {{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+    <form method="POST" action="{{ url_for('main.add_comment', post_id=post.id) }}">
+        <textarea name="content" rows="3" required></textarea>
+        <br />
+        <button type="submit">댓글 작성</button>
+    </form>
+</section>
+{% endblock %}

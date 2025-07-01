@@ -12,9 +12,7 @@ function startBlinking() {
 /** index.html에 텍스트 추가하기 */
 function missionCompleteDate() {
     let today = new Date();
-    document.getElementById("github-mission-C-list").innerHTML = 
-    today.getFullYear().toString().substring(2,4) + "년 " + 
-    (today.getMonth()+1) + "월 " + 
-    today.getDate() + "일 " + "기준 깃헙 작업자 명단 ^^";
+    document.getElementById('github-mission-C-list').innerHTML =
+        today.getFullYear().toString().substring(2, 4) + '년 ' + (today.getMonth() + 1) + '월 ' + today.getDate() + '일 ' + '기준 작업자 명단 ^^';
 }
 missionCompleteDate();
