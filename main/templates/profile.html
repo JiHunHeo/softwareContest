@@ -1,15 +1,319 @@
 <!-- filepath: c:\KNOU_HJH\softwareContest\main\templates\profile.html -->
-{% extends "base.html" %} {% block title %}프로필{% endblock %} {% block content %}
-<section>
-    <h1>프로필</h1>
-    <p><strong>아이디:</strong> {{ user.user_id }}</p>
-    <p><strong>이름:</strong> {{ user.username }}</p>
-    <p><strong>생년월일:</strong> {{ user.birthdate }}</p>
-    <p><strong>학년:</strong> {{ user.grade }}</p>
-    <p><strong>학번:</strong> {{ user.student_id }}</p>
-    <p><strong>휴대폰 번호:</strong> {{ user.phone_number }}</p>
-    <p><strong>주소:</strong> {{ user.address }}</p>
-    <p><strong>직장인 여부:</strong> {{ '예' if user.is_employed else '아니오' }}</p>
-    <p><strong>가입일:</strong> {{ user.created_at }}</p>
-</section>
+{% extends "new_base_fixed.html" %} {% block title %}내 프로필{% endblock %} {% block content %}
+<div class="main-content">
+    <div class="page-header">
+        <h1><i class="fas fa-user me-2"></i>내 프로필</h1>
+        <p class="page-description">개인정보 및 계정 설정</p>
+    </div>
+
+    <div class="profile-container">
+        <!-- 프로필 메인 카드 -->
+        <div class="profile-main-card">
+            <div class="profile-avatar">
+                <div class="avatar-circle">
+                    <i class="fas fa-user fa-3x"></i>
+                </div>
+                <button class="btn btn-sm btn-outline-primary mt-2">사진 변경</button>
+            </div>
+            <div class="profile-basic">
+                <h2>{{ user.username }}</h2>
+                <p class="text-muted">{{ user.user_id }}</p>
+                <div class="profile-badges">
+                    <span class="badge bg-primary">{{ user.grade }}학년</span>
+                    {% if user.is_employed %}
+                    <span class="badge bg-success">직장인</span>
+                    {% endif %}
+                    <span class="badge bg-info">가입일: {{ user.created_at.strftime('%Y.%m.%d') }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로필 정보 카드들 -->
+        <div class="profile-info-grid">
+            <!-- 기본 정보 -->
+            <div class="info-card">
+                <div class="card-header">
+                    <h4><i class="fas fa-id-card me-2"></i>기본 정보</h4>
+                    <button class="btn btn-sm btn-outline-secondary">수정</button>
+                </div>
+                <div class="card-content">
+                    <div class="info-row">
+                        <span class="info-label">이름</span>
+                        <span class="info-value">{{ user.username }}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">생년월일</span>
+                        <span class="info-value">{{ user.birthdate or '미입력' }}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">학번</span>
+                        <span class="info-value">{{ user.student_id or '미입력' }}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">학년</span>
+                        <span class="info-value">{{ user.grade or '미입력' }}학년</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 연락처 정보 -->
+            <div class="info-card">
+                <div class="card-header">
+                    <h4><i class="fas fa-phone me-2"></i>연락처</h4>
+                    <button class="btn btn-sm btn-outline-secondary">수정</button>
+                </div>
+                <div class="card-content">
+                    <div class="info-row">
+                        <span class="info-label">휴대폰</span>
+                        <span class="info-value">{{ user.phone_number or '미입력' }}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">주소</span>
+                        <span class="info-value">{{ user.address or '미입력' }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 계정 설정 -->
+            <div class="info-card">
+                <div class="card-header">
+                    <h4><i class="fas fa-cog me-2"></i>계정 설정</h4>
+                </div>
+                <div class="card-content">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong>알림 설정</strong>
+                            <p>새 댓글, 쪽지 등의 알림</p>
+                        </div>
+                        <div class="setting-control">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong>프로필 공개</strong>
+                            <p>다른 사용자에게 프로필 공개</p>
+                        </div>
+                        <div class="setting-control">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 활동 통계 -->
+            <div class="info-card">
+                <div class="card-header">
+                    <h4><i class="fas fa-chart-bar me-2"></i>활동 통계</h4>
+                </div>
+                <div class="card-content">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">작성한 글</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">187</div>
+                            <div class="stat-label">작성한 댓글</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">52</div>
+                            <div class="stat-label">받은 좋아요</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">중고거래</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 액션 버튼들 -->
+        <div class="profile-actions">
+            <button class="btn btn-primary btn-lg"><i class="fas fa-edit me-2"></i>프로필 수정</button>
+            <button class="btn btn-outline-secondary btn-lg"><i class="fas fa-shield-alt me-2"></i>보안 설정</button>
+            <button class="btn btn-outline-danger btn-lg"><i class="fas fa-sign-out-alt me-2"></i>로그아웃</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 15px;
+        color: white;
+    }
+
+    .profile-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .profile-main-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .profile-avatar {
+        text-align: center;
+    }
+
+    .avatar-circle {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .profile-basic h2 {
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .profile-badges {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .profile-info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .info-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .card-header {
+        padding: 1.5rem;
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-header h4 {
+        margin: 0;
+        color: #333;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .info-row:last-child {
+        border-bottom: none;
+    }
+
+    .info-label {
+        font-weight: 500;
+        color: #666;
+    }
+
+    .info-value {
+        color: #333;
+    }
+
+    .setting-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .setting-item:last-child {
+        border-bottom: none;
+    }
+
+    .setting-info p {
+        margin: 0;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .stat-label {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .profile-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+        .profile-main-card {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .profile-info-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .profile-actions {
+            flex-direction: column;
+        }
+    }
+</style>
 {% endblock %}

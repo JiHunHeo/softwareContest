@@ -1,20 +1,289 @@
-{% extends "base.html" %} {% block title %}다른 페이지{% endblock %} {% block content %}
-<h1>자바칩 페이지입니다!</h1>
-<p>어떤 기능과 내용을 추가하면 좋을까요 ?</p>
-<ol>
-    <li>
-        타임라인(?) 기능..ㅎ - 기동 -
-        <ul>
-            <li>좋은 생각 같습니다 ! 우선 깃허브 커밋 히스토리를 같이 업로드 해볼게요 !</li>
-        </ul>
-    </li>
-    <li>
-        책 중고마켓, 과목후기, 자유글게시판 - 민희 -
-        <ul>
-            <li>좋은 생각입니다 !</li>
-            <li>중고마켓, 과목후기, 자유글게시판 세가지 모두다 DB가 필요한 작업이로군요 ! 웹페이지에 반드시 필요한 기능입니다 !</li>
-        </ul>
-    </li>
-</ol>
-<p>이 페이지는 자바칩의 개발 타임라인입니다 !</p>
+{% extends "new_base_fixed.html" %} {% block title %}소개{% endblock %} {% block content %}
+<div class="main-content">
+    <div class="page-header">
+        <h1><i class="fas fa-info-circle me-2"></i>방통대 컴퓨터과학과 커뮤니티</h1>
+        <p class="page-description">함께 성장하는 학습 공동체</p>
+    </div>
+
+    <div class="about-container">
+        <!-- 소개 섹션 -->
+        <div class="intro-section">
+            <div class="intro-card">
+                <h2><i class="fas fa-graduation-cap me-2"></i>우리 커뮤니티는</h2>
+                <p>방송통신대학교 컴퓨터과학과 학생들을 위한 온라인 학습 플랫폼입니다. 함께 공부하고, 정보를 공유하며, 서로 도움을 주고받는 공간을 만들어가고 있습니다.</p>
+            </div>
+        </div>
+
+        <!-- 기능 소개 -->
+        <div class="features-section">
+            <h3><i class="fas fa-star me-2"></i>주요 기능</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments fa-2x text-primary"></i>
+                    </div>
+                    <h4>자유 게시판</h4>
+                    <p>학과 생활, 학습 정보, 일상 이야기를 자유롭게 나누는 공간</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle fa-2x text-success"></i>
+                    </div>
+                    <h4>질문 게시판</h4>
+                    <p>과제, 시험, 프로그래밍 관련 질문과 답변을 공유하는 공간</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users fa-2x text-info"></i>
+                    </div>
+                    <h4>스터디 모집</h4>
+                    <p>함께 공부할 스터디 그룹을 모집하고 참여하는 공간</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-store fa-2x text-warning"></i>
+                    </div>
+                    <h4>중고 거래</h4>
+                    <p>교재, 전자기기 등을 사고팔 수 있는 중고 거래 플랫폼</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell fa-2x text-danger"></i>
+                    </div>
+                    <h4>공지사항</h4>
+                    <p>학과 공지사항과 중요한 정보를 빠르게 확인할 수 있는 공간</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line fa-2x text-secondary"></i>
+                    </div>
+                    <h4>통계 정보</h4>
+                    <p>커뮤니티 활동 현황과 다양한 통계를 확인할 수 있는 공간</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 개발 팀 소개 -->
+        <div class="team-section">
+            <h3><i class="fas fa-code me-2"></i>개발팀 - 자바칩</h3>
+            <div class="team-card">
+                <p>방통대 컴퓨터과학과 학생들이 직접 개발하고 운영하는 프로젝트입니다.</p>
+                <div class="tech-stack">
+                    <h4>사용 기술</h4>
+                    <div class="tech-badges">
+                        <span class="badge bg-primary">Python</span>
+                        <span class="badge bg-success">Flask</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                        <span class="badge bg-danger">JavaScript</span>
+                        <span class="badge bg-secondary">HTML/CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 향후 계획 -->
+        <div class="roadmap-section">
+            <h3><i class="fas fa-rocket me-2"></i>향후 계획</h3>
+            <div class="roadmap-list">
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">
+                        <i class="fas fa-clock text-primary"></i>
+                    </div>
+                    <div class="roadmap-content">
+                        <h5>타임라인 기능</h5>
+                        <p>실시간 활동 피드와 개인 타임라인 기능 추가</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">
+                        <i class="fas fa-mobile-alt text-success"></i>
+                    </div>
+                    <div class="roadmap-content">
+                        <h5>모바일 앱</h5>
+                        <p>더 편리한 모바일 앱 서비스 제공</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">
+                        <i class="fas fa-robot text-info"></i>
+                    </div>
+                    <div class="roadmap-content">
+                        <h5>AI 기능</h5>
+                        <p>학습 도우미 챗봇과 스마트 추천 시스템</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 3rem 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 15px;
+        color: white;
+    }
+
+    .about-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .intro-section {
+        margin-bottom: 3rem;
+    }
+
+    .intro-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .intro-card h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+
+    .intro-card p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+    }
+
+    .features-section,
+    .team-section,
+    .roadmap-section {
+        margin-bottom: 3rem;
+    }
+
+    .features-section h3,
+    .team-section h3,
+    .roadmap-section h3 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #333;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-icon {
+        margin-bottom: 1rem;
+    }
+
+    .feature-card h4 {
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .team-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .tech-stack {
+        margin-top: 1.5rem;
+    }
+
+    .tech-stack h4 {
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .tech-badges {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .roadmap-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .roadmap-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .roadmap-icon {
+        width: 60px;
+        height: 60px;
+        background: #f8f9fa;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    .roadmap-content h5 {
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .roadmap-content p {
+        margin: 0;
+        color: #666;
+    }
+
+    @media (max-width: 768px) {
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .roadmap-item {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .tech-badges {
+            justify-content: center;
+        }
+    }
+</style>
 {% endblock %}

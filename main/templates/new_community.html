@@ -1,0 +1,372 @@
+{% extends "new_base_fixed.html" %} {% block page_title %}커뮤니티{% endblock %} {% block content %}
+<div class="container-wide">
+    <!-- 헤더 섹션 -->
+    <div class="header-section">
+        <h1>💬 커뮤니티</h1>
+        <p>방통대 컴퓨터 과학과 학생들의 소통과 정보 공유 공간입니다</p>
+    </div>
+
+    <!-- 검색 및 필터 섹션 -->
+    <div class="community-controls">
+        <div class="search-section">
+            <div class="search-input-group">
+                <input type="text" placeholder="🔍 궁금한 내용을 검색해보세요..." class="search-input-modern" />
+                <button class="search-btn-modern">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-tabs-modern">
+                <a href="#" class="filter-tab-modern active" data-filter="all"> <i class="fas fa-list"></i> 전체 </a>
+                <a href="#" class="filter-tab-modern" data-filter="notice"> <i class="fas fa-megaphone"></i> 공지 </a>
+                <a href="#" class="filter-tab-modern" data-filter="study"> <i class="fas fa-users"></i> 스터디 </a>
+                <a href="#" class="filter-tab-modern" data-filter="project"> <i class="fas fa-rocket"></i> 프로젝트 </a>
+                <a href="#" class="filter-tab-modern" data-filter="qna"> <i class="fas fa-question-circle"></i> Q&A </a>
+                <a href="#" class="filter-tab-modern" data-filter="free"> <i class="fas fa-comment"></i> 자유 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 콘텐츠 -->
+    <div class="community-main">
+        <div class="posts-container">
+            <!-- 게시글 헤더 -->
+            <div class="posts-header-modern">
+                <div class="posts-stats">
+                    <span class="total-posts">📊 총 <strong>1,247</strong>개의 게시글</span>
+                    <span class="online-users">👥 현재 <strong>32</strong>명 접속중</span>
+                </div>
+                <div class="sort-options">
+                    <select class="sort-select">
+                        <option value="latest">최신순</option>
+                        <option value="popular">인기순</option>
+                        <option value="views">조회순</option>
+                        <option value="comments">댓글순</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 게시글 목록 -->
+            <div class="posts-grid">
+                <!-- 공지사항 -->
+                <div class="post-card notice-post" data-post-id="1" data-category="notice">
+                    <div class="post-header">
+                        <div class="post-category notice"><i class="fas fa-megaphone"></i> 공지</div>
+                        <div class="post-meta">
+                            <span class="post-date">12/11</span>
+                            <span class="post-views">👁 1,234</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">[필독] 2024년 2학기 출석수업 및 시험 일정 안내</h3>
+                        <p class="post-preview">모든 학생들이 반드시 확인해야 할 중요한 학사 일정을 안내드립니다...</p>
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-author">
+                            <div class="author-avatar">👨‍🏫</div>
+                            <span class="author-name">김교수</span>
+                        </div>
+                        <div class="post-stats">
+                            <span class="comments">💬 15</span>
+                            <span class="likes">❤️ 89</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 스터디 -->
+                <div class="post-card" data-post-id="2" data-category="study">
+                    <div class="post-header">
+                        <div class="post-category study"><i class="fas fa-users"></i> 스터디</div>
+                        <div class="post-meta">
+                            <span class="post-date">12/11</span>
+                            <span class="post-views">👁 856</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">알고리즘 문제해결 스터디원 모집합니다!</h3>
+                        <p class="post-preview">백준, 코드포스 문제를 함께 풀어나갈 스터디원을 찾고 있습니다...</p>
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-author">
+                            <div class="author-avatar">👨‍💻</div>
+                            <span class="author-name">이민수</span>
+                        </div>
+                        <div class="post-stats">
+                            <span class="comments">💬 23</span>
+                            <span class="likes">❤️ 45</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 -->
+                <div class="post-card" data-post-id="3" data-category="project">
+                    <div class="post-header">
+                        <div class="post-category project"><i class="fas fa-rocket"></i> 프로젝트</div>
+                        <div class="post-meta">
+                            <span class="post-date">12/10</span>
+                            <span class="post-views">👁 734</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">React 웹앱 개발 프로젝트 팀원 구합니다</h3>
+                        <p class="post-preview">현대적인 웹 애플리케이션을 함께 만들어갈 열정적인 팀원을 모집합니다...</p>
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-author">
+                            <div class="author-avatar">🚀</div>
+                            <span class="author-name">박한빛</span>
+                        </div>
+                        <div class="post-stats">
+                            <span class="comments">💬 31</span>
+                            <span class="likes">❤️ 67</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q&A -->
+                <div class="post-card" data-post-id="4" data-category="qna">
+                    <div class="post-header">
+                        <div class="post-category qna"><i class="fas fa-question-circle"></i> Q&A</div>
+                        <div class="post-meta">
+                            <span class="post-date">12/10</span>
+                            <span class="post-views">👁 512</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">Java 배열 관련 질문드립니다</h3>
+                        <p class="post-preview">2차원 배열을 다루는 중에 인덱스 에러가 계속 발생하는데...</p>
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-author">
+                            <div class="author-avatar">🤔</div>
+                            <span class="author-name">초보개발자</span>
+                        </div>
+                        <div class="post-stats">
+                            <span class="comments">💬 8</span>
+                            <span class="likes">❤️ 12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 자유게시판 -->
+                <div class="post-card" data-post-id="5" data-category="free">
+                    <div class="post-header">
+                        <div class="post-category free"><i class="fas fa-comment"></i> 자유</div>
+                        <div class="post-meta">
+                            <span class="post-date">12/09</span>
+                            <span class="post-views">👁 891</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">방학 중 추천 프로그래밍 강의 공유해요</h3>
+                        <p class="post-preview">개인적으로 들어보고 좋았던 온라인 강의들을 정리해서 공유드립니다...</p>
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-author">
+                            <div class="author-avatar">👨‍💼</div>
+                            <span class="author-name">코딩맨</span>
+                        </div>
+                        <div class="post-stats">
+                            <span class="comments">💬 18</span>
+                            <span class="likes">❤️ 52</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 더 많은 게시글들... -->
+                <div class="post-card" data-post-id="6" data-category="study">
+                    <div class="post-header">
+                        <div class="post-category study"><i class="fas fa-users"></i> 스터디</div>
+                        <div class="post-meta">
+                            <span class="post-date">12/09</span>
+                            <span class="post-views">👁 623</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">기말고사 대비 데이터베이스 스터디 모집</h3>
+                        <p class="post-preview">SQL과 데이터베이스 설계를 함께 공부할 스터디원을 모집합니다...</p>
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-author">
+                            <div class="author-avatar">🗄️</div>
+                            <span class="author-name">DB마스터</span>
+                        </div>
+                        <div class="post-stats">
+                            <span class="comments">💬 12</span>
+                            <span class="likes">❤️ 28</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 페이지네이션 -->
+            <div class="pagination-modern">
+                <button class="page-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="page-numbers">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <span class="page-dots">...</span>
+                    <button class="page-btn">10</button>
+                </div>
+                <button class="page-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 사이드바 -->
+        <div class="community-sidebar">
+            <!-- 인기글 -->
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h4>🔥 실시간 인기글</h4>
+                </div>
+                <div class="popular-posts">
+                    <div class="popular-item">
+                        <span class="popular-rank">1</span>
+                        <div class="popular-content">
+                            <p class="popular-title">프로그래밍 과제 도움 받을 사람 구해요</p>
+                            <span class="popular-meta">💬 45 ❤️ 23</span>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <span class="popular-rank">2</span>
+                        <div class="popular-content">
+                            <p class="popular-title">기말고사 대비 스터디 모집</p>
+                            <span class="popular-meta">💬 32 ❤️ 18</span>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <span class="popular-rank">3</span>
+                        <div class="popular-content">
+                            <p class="popular-title">웹개발 프로젝트 팀원 모집합니다</p>
+                            <span class="popular-meta">💬 28 ❤️ 15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 빠른 글쓰기 -->
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h4>✍️ 빠른 글쓰기</h4>
+                </div>
+                <div class="quick-write-buttons">
+                    <a href="{{ url_for('main.create_post') }}?type=question" class="quick-btn question">
+                        <i class="fas fa-question-circle"></i>
+                        질문하기
+                    </a>
+                    <a href="{{ url_for('main.create_post') }}?type=study" class="quick-btn study">
+                        <i class="fas fa-users"></i>
+                        스터디 모집
+                    </a>
+                    <a href="{{ url_for('main.create_post') }}?type=project" class="quick-btn project">
+                        <i class="fas fa-rocket"></i>
+                        프로젝트 팀원
+                    </a>
+                    <a href="{{ url_for('main.create_post') }}?type=free" class="quick-btn free">
+                        <i class="fas fa-comment"></i>
+                        자유글 작성
+                    </a>
+                </div>
+            </div>
+
+            <!-- 통계 -->
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h4>📊 커뮤니티 현황</h4>
+                </div>
+                <div class="community-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-content">
+                            <span class="stat-number">1,247</span>
+                            <span class="stat-label">총 게시글</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <span class="stat-number">342</span>
+                            <span class="stat-label">활성 회원</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">💬</div>
+                        <div class="stat-content">
+                            <span class="stat-number">3,891</span>
+                            <span class="stat-label">총 댓글</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 플로팅 글쓰기 버튼 -->
+<div class="floating-write-container">
+    <a href="{{ url_for('main.create_post') }}" class="floating-write-btn">
+        <i class="fas fa-edit"></i>
+    </a>
+</div>
+
+<script>
+    // 게시글 클릭 이벤트
+    document.querySelectorAll('.post-card').forEach((card) => {
+        card.addEventListener('click', function () {
+            const postId = this.dataset.postId;
+            window.location.href = `/post/${postId}`;
+        });
+    });
+
+    // 필터 탭 기능
+    document.querySelectorAll('.filter-tab-modern').forEach((tab) => {
+        tab.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // 활성 탭 변경
+            document.querySelectorAll('.filter-tab-modern').forEach((t) => t.classList.remove('active'));
+            this.classList.add('active');
+
+            // 게시글 필터링
+            const filter = this.dataset.filter;
+            document.querySelectorAll('.post-card').forEach((post) => {
+                if (filter === 'all' || post.dataset.category === filter) {
+                    post.style.display = 'block';
+                    post.style.animation = 'fadeIn 0.3s ease-out';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 검색 기능
+    document.querySelector('.search-btn-modern').addEventListener('click', function () {
+        const searchTerm = document.querySelector('.search-input-modern').value.toLowerCase();
+        document.querySelectorAll('.post-card').forEach((post) => {
+            const title = post.querySelector('.post-title').textContent.toLowerCase();
+            const preview = post.querySelector('.post-preview').textContent.toLowerCase();
+
+            if (title.includes(searchTerm) || preview.includes(searchTerm)) {
+                post.style.display = 'block';
+            } else {
+                post.style.display = 'none';
+            }
+        });
+    });
+
+    // 엔터키 검색
+    document.querySelector('.search-input-modern').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            document.querySelector('.search-btn-modern').click();
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "new_base_fixed.html" %} {% block title %}통계{% endblock %} {% block content %}
+<div class="container-fluid px-4">
+    <div class="page-header mb-4">
+        <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-chart-line me-2"></i>통계 대시보드</h1>
+        <p class="text-muted">방통대 컴퓨터과학과 커뮤니티 통계</p>
+    </div>
+
+    <!-- 주요 지표 카드 -->
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h6 class="text-primary mb-1">총 회원수</h6>
+                            <h3 class="mb-0">2,847</h3>
+                            <small class="text-success"> <i class="fas fa-arrow-up me-1"></i>+12% 이번 달 </small>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h6 class="text-success mb-1">총 게시글</h6>
+                            <h3 class="mb-0">15,672</h3>
+                            <small class="text-success"> <i class="fas fa-arrow-up me-1"></i>+8% 이번 달 </small>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-edit fa-2x text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h6 class="text-info mb-1">총 댓글</h6>
+                            <h3 class="mb-0">45,891</h3>
+                            <small class="text-success"> <i class="fas fa-arrow-up me-1"></i>+15% 이번 달 </small>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h6 class="text-warning mb-1">오늘 활성 사용자</h6>
+                            <h3 class="mb-0">892</h3>
+                            <small class="text-muted">실시간</small>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-clock fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 임시 차트 영역 -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">월별 활동 추이</h5>
+                    <p class="text-muted">차트는 다음에 추가 예정</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

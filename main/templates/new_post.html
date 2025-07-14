@@ -1,23 +1,135 @@
-<!-- filepath: c:\KNOU_HJH\softwareContest\main\templates\new_post.html -->
-{% extends "base.html" %} {% block title %}{{ board_type }} - 새 글 작성{% endblock %} {% block content %}
-<section>
-    <h1>{{ board_type }} - 새 글 작성</h1>
-    <form method="POST">
-        <label for="title">제목:</label>
-        <input type="text" name="title" id="title" required />
-        <br />
-        <label for="content">내용:</label>
-        <textarea name="content" id="content" required></textarea>
-        <br />
-        {% if board_type == '중고 게시판' %}
-        <label for="price">가격:</label>
-        <input type="number" name="price" id="price" />
-        <br />
+{% extends "new_base_fixed.html" %}
+
+{% block page_title %}글쓰기{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- 헤더 섹션 -->
+    <div class="header-section">
+        <h1>✍️ 새 글 작성</h1>
+        <p>방통대 컴퓨터 과학과 커뮤니티에 소중한 이야기를 공유해보세요</p>
+    </div>
+
+    <!-- 글쓰기 폼 -->
+    <div class="form-container">
+        <div class="section-header">
+            <h3>📝 게시글 정보</h3>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- 플래시 메시지 -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="flash-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                {{ message }}
+            </div>
+            {% endfor %}
         {% endif %}
-        <label for="author">작성자:</label>
-        <input type="text" name="author" id="author" required />
-        <br />
-        <button type="submit">작성</button>
-    </form>
-</section>
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('main.create_post') }}">
+            <!-- 게시판 유형 선택 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-folder-open"></i>
+                    게시판 유형
+                </label>
+                <select name="board_type" required class="form-input form-select">
+                    <option value="">📂 게시판을 선택하세요</option>
+                    <option value="일반">💬 일반 게시판</option>
+                    <option value="질문">❓ 질문 게시판</option>
+                    <option value="정보">📢 정보 공유</option>
+                    <option value="중고">🛒 중고거래</option>
+                    <option value="자유">🎉 자유 게시판</option>
+                </select>
+            </div>
+
+            <!-- 제목 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-heading"></i>
+                    제목
+                </label>
+                <input type="text" name="title" required maxlength="100" 
+                       placeholder="✨ 매력적인 제목을 입력하세요"
+                       class="form-input">
+            </div>
+
+            <!-- 내용 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-edit"></i>
+                    내용
+                </label>
+                <textarea name="content" required rows="14"
+                          placeholder="📝 여러분의 소중한 이야기를 자유롭게 작성해주세요...&#10;&#10;💡 팁: &#10;- 다른 사람들에게 도움이 되는 내용을 공유해보세요&#10;- 질문이라면 구체적으로 작성해주세요&#10;- 서로 존중하는 마음으로 소통해요"
+                          class="form-input form-textarea"></textarea>
+            </div>
+
+            <!-- 중고거래 전용 가격 필드 -->
+            <div id="price_field" class="form-group price-field">
+                <label>
+                    <i class="fas fa-won-sign"></i>
+                    가격
+                </label>
+                <input type="number" name="price" min="0" 
+                       placeholder="💰 가격을 입력하세요 (원)"
+                       class="form-input">
+            </div>
+
+            <!-- 버튼 그룹 -->
+            <div class="button-group">
+                <a href="{{ url_for('main.new_community') }}" class="btn-secondary-custom">
+                    <i class="fas fa-arrow-left"></i>
+                    취소
+                </a>
+                <button type="submit" class="btn-primary-custom">
+                    <i class="fas fa-paper-plane"></i>
+                    작성하기
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+// 게시판 유형에 따라 가격 필드 표시/숨김
+document.querySelector('select[name="board_type"]').addEventListener('change', function() {
+    const priceField = document.getElementById('price_field');
+    if (this.value === '중고') {
+        priceField.classList.add('show');
+        priceField.querySelector('input').required = true;
+    } else {
+        priceField.classList.remove('show');
+        priceField.querySelector('input').required = false;
+    }
+});
+
+// 폼 제출 전 유효성 검사
+document.querySelector('form').addEventListener('submit', function(e) {
+    const boardType = document.querySelector('select[name="board_type"]').value;
+    const title = document.querySelector('input[name="title"]').value.trim();
+    const content = document.querySelector('textarea[name="content"]').value.trim();
+    
+    if (!boardType || !title || !content) {
+        e.preventDefault();
+        alert('모든 필수 항목을 입력해주세요! 📝');
+        return;
+    }
+    
+    if (title.length < 5) {
+        e.preventDefault();
+        alert('제목은 5자 이상 입력해주세요! ✏️');
+        return;
+    }
+    
+    if (content.length < 10) {
+        e.preventDefault();
+        alert('내용은 10자 이상 입력해주세요! 📄');
+        return;
+    }
+});
+</script>
 {% endblock %}

@@ -1,5 +1,162 @@
-<!-- filepath: c:\KNOU_HJH\softwareContest\main\templates\notices.html -->
-{% extends "base.html" %} {% block title %}공지사항 게시판{% endblock %} {% block content %}
+<{% extends "new_base_fixed.html" %} {% block title %}공지사항{% endblock %} {% block content %}
+<div class="main-content">
+    <div class="page-header">
+        <h1><i class="fas fa-bell me-2"></i>공지사항</h1>
+        <p class="page-description">방통대 컴퓨터과학과 공지사항</p>
+    </div>
+
+    <div class="notices-container">
+        {% if notices %}
+        <div class="notices-list">
+            {% for notice in notices %}
+            <div class="notice-card">
+                <div class="notice-header">
+                    <h3 class="notice-title">{{ notice.title }}</h3>
+                    <div class="notice-meta">
+                        <span class="notice-date">
+                            <i class="fas fa-calendar me-1"></i>
+                            {{ notice.created_at.strftime('%Y.%m.%d') if notice.created_at else '날짜 미상' }}
+                        </span>
+                        <span class="notice-badge">
+                            <span class="badge bg-danger">공지</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notice-content">
+                    <p>{{ notice.content[:200] }}{% if notice.content|length > 200 %}...{% endif %}</p>
+                </div>
+
+                <div class="notice-actions">
+                    {% if notice.source_url %}
+                    <a href="{{ notice.source_url }}" target="_blank" class="btn btn-outline-primary"> <i class="fas fa-external-link-alt me-2"></i>원문 보기 </a>
+                    {% endif %}
+                    <button class="btn btn-primary"><i class="fas fa-eye me-2"></i>자세히 보기</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-notices">
+            <div class="empty-icon">
+                <i class="fas fa-bell-slash fa-3x text-muted"></i>
+            </div>
+            <h3>공지사항이 없습니다</h3>
+            <p>새로운 공지사항이 등록되면 여기에 표시됩니다.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    .page-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 0;
+        background: linear-gradient(135deg, #dc3545, #fd7e14);
+        border-radius: 15px;
+        color: white;
+    }
+
+    .notices-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .notices-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .notice-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .notice-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .notice-header {
+        padding: 1.5rem;
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .notice-title {
+        color: #333;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .notice-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+
+    .notice-date {
+        color: #666;
+    }
+
+    .notice-content {
+        padding: 1.5rem;
+    }
+
+    .notice-content p {
+        color: #555;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .notice-actions {
+        padding: 1rem 1.5rem;
+        background: #f8f9fa;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+    }
+
+    .empty-notices {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .empty-icon {
+        margin-bottom: 1.5rem;
+    }
+
+    .empty-notices h3 {
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+    .empty-notices p {
+        color: #666;
+    }
+
+    @media (max-width: 768px) {
+        .notice-meta {
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .notice-actions {
+            flex-direction: column;
+        }
+    }
+</style>
+{% endblock %}:\KNOU_HJH\softwareContest\main\templates\notices.html --> {% extends "base.html" %} {% block title %}공지사항 게시판{% endblock %} {% block content %}
 <section>
     <h1>공지사항 게시판</h1>
     <ul>

@@ -1,0 +1,226 @@
+{% extends "new_base_fixed.html" %}
+
+{% block page_title %}회원가입{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- 헤더 섹션 -->
+    <div class="header-section">
+        <h1>👋 회원가입</h1>
+        <p>방통대 컴퓨터 과학과 커뮤니티의 새로운 멤버가 되어보세요</p>
+    </div>
+
+    <!-- 회원가입 폼 -->
+    <div class="form-container">
+        <div class="section-header">
+            <h3>🆕 새 계정 만들기</h3>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- 플래시 메시지 -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="flash-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('main.register') }}">
+            <!-- 아이디 입력 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-user"></i>
+                    아이디 <span style="color: #e74c3c;">*</span>
+                </label>
+                <input type="text" name="user_id" required autocomplete="username"
+                       placeholder="👤 4-20자의 영문, 숫자 조합"
+                       minlength="4" maxlength="20" pattern="[a-zA-Z0-9]+"
+                       class="form-input">
+                <small style="color: #6c757d; font-size: 0.9rem; margin-top: 5px; display: block;">
+                    <i class="fas fa-info-circle"></i> 영문자와 숫자만 사용 가능합니다
+                </small>
+            </div>
+
+            <!-- 이메일 입력 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-envelope"></i>
+                    이메일 <span style="color: #e74c3c;">*</span>
+                </label>
+                <input type="email" name="email" required autocomplete="email"
+                       placeholder="📧 your-email@example.com"
+                       class="form-input">
+            </div>
+
+            <!-- 비밀번호 입력 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-lock"></i>
+                    비밀번호 <span style="color: #e74c3c;">*</span>
+                </label>
+                <div class="password-input-group">
+                    <input type="password" name="password" id="password" required autocomplete="new-password"
+                           placeholder="🔒 8자 이상의 안전한 비밀번호"
+                           minlength="8" class="form-input">
+                    <button type="button" onclick="togglePassword('password')" class="password-toggle">
+                        <i class="fas fa-eye" id="password-eye"></i>
+                    </button>
+                </div>
+                <small style="color: #6c757d; font-size: 0.9rem; margin-top: 5px; display: block;">
+                    <i class="fas fa-shield-alt"></i> 영문, 숫자, 특수문자 조합 권장
+                </small>
+            </div>
+
+            <!-- 비밀번호 확인 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-lock"></i>
+                    비밀번호 확인 <span style="color: #e74c3c;">*</span>
+                </label>
+                <div class="password-input-group">
+                    <input type="password" name="password_confirm" id="password_confirm" required
+                           placeholder="🔒 비밀번호를 다시 입력하세요"
+                           class="form-input">
+                    <button type="button" onclick="togglePassword('password_confirm')" class="password-toggle">
+                        <i class="fas fa-eye" id="password_confirm-eye"></i>
+                    </button>
+                </div>
+                <div id="password-match" style="margin-top: 5px; font-size: 0.9rem;"></div>
+            </div>
+
+            <!-- 개인정보 동의 -->
+            <div class="form-group">
+                <div class="privacy-box">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy_agree" name="privacy_agree" required class="checkbox-custom">
+                        <label for="privacy_agree" class="checkbox-label">
+                            <span style="color: #e74c3c;">*</span> 개인정보 수집 및 이용에 동의합니다
+                        </label>
+                    </div>
+                    <div class="privacy-details">
+                        수집항목: 아이디, 이메일, 비밀번호<br>
+                        이용목적: 회원가입, 서비스 이용, 커뮤니티 활동<br>
+                        보유기간: 회원탈퇴 시까지
+                    </div>
+                </div>
+            </div>
+
+            <!-- 회원가입 버튼 -->
+            <button type="submit" class="btn-success-custom" style="width: 100%; margin-top: 10px;">
+                <i class="fas fa-user-plus"></i>
+                회원가입 완료
+            </button>
+        </form>
+
+        <!-- 로그인 링크 -->
+        <div class="link-section">
+            <div class="link-card">
+                <p>이미 계정이 있으신가요?</p>
+                <a href="{{ url_for('main.login') }}" class="btn-primary-custom">
+                    <i class="fas fa-sign-in-alt"></i>
+                    로그인하기
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// 비밀번호 표시/숨김 토글
+function togglePassword(inputId) {
+    const passwordInput = document.getElementById(inputId);
+    const passwordEye = document.getElementById(inputId + '-eye');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordEye.classList.remove('fa-eye');
+        passwordEye.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        passwordEye.classList.remove('fa-eye-slash');
+        passwordEye.classList.add('fa-eye');
+    }
+}
+
+// 비밀번호 일치 확인
+document.getElementById('password_confirm').addEventListener('input', function() {
+    const password = document.getElementById('password').value;
+    const passwordConfirm = this.value;
+    const matchDiv = document.getElementById('password-match');
+    
+    if (passwordConfirm === '') {
+        matchDiv.innerHTML = '';
+        return;
+    }
+    
+    if (password === passwordConfirm) {
+        matchDiv.innerHTML = '<i class="fas fa-check-circle" style="color: #28a745;"></i> 비밀번호가 일치합니다';
+        matchDiv.className = 'password-match';
+    } else {
+        matchDiv.innerHTML = '<i class="fas fa-times-circle" style="color: #dc3545;"></i> 비밀번호가 일치하지 않습니다';
+        matchDiv.className = 'password-mismatch';
+    }
+});
+
+// 폼 제출 전 유효성 검사
+document.querySelector('form').addEventListener('submit', function(e) {
+    const userId = document.querySelector('input[name="user_id"]').value.trim();
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const password = document.querySelector('input[name="password"]').value;
+    const passwordConfirm = document.querySelector('input[name="password_confirm"]').value;
+    const privacyAgree = document.querySelector('input[name="privacy_agree"]').checked;
+    
+    // 기본 유효성 검사
+    if (!userId || !email || !password || !passwordConfirm) {
+        e.preventDefault();
+        alert('모든 필수 항목을 입력해주세요! 📝');
+        return;
+    }
+    
+    // 아이디 검사
+    if (userId.length < 4 || userId.length > 20) {
+        e.preventDefault();
+        alert('아이디는 4-20자로 입력해주세요! 👤');
+        return;
+    }
+    
+    if (!/^[a-zA-Z0-9]+$/.test(userId)) {
+        e.preventDefault();
+        alert('아이디는 영문자와 숫자만 사용할 수 있습니다! 🔤');
+        return;
+    }
+    
+    // 이메일 검사
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        e.preventDefault();
+        alert('올바른 이메일 형식을 입력해주세요! 📧');
+        return;
+    }
+    
+    // 비밀번호 검사
+    if (password.length < 8) {
+        e.preventDefault();
+        alert('비밀번호는 8자 이상 입력해주세요! 🔒');
+        return;
+    }
+    
+    if (password !== passwordConfirm) {
+        e.preventDefault();
+        alert('비밀번호가 일치하지 않습니다! 🔐');
+        return;
+    }
+    
+    // 개인정보 동의 검사
+    if (!privacyAgree) {
+        e.preventDefault();
+        alert('개인정보 수집 및 이용에 동의해주세요! ✅');
+        return;
+    }
+});
+</script>
+{% endblock %}

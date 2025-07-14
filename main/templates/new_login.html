@@ -1,0 +1,146 @@
+{% extends "new_base_fixed.html" %}
+
+{% block page_title %}로그인{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- 헤더 섹션 -->
+    <div class="header-section">
+        <h1>🔐 로그인</h1>
+        <p>방통대 컴퓨터 과학과 커뮤니티에 오신 것을 환영합니다</p>
+    </div>
+
+    <!-- 로그인 폼 -->
+    <div class="form-container">
+        <div class="section-header">
+            <h3>👤 계정 로그인</h3>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- 플래시 메시지 -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="flash-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('main.login') }}">
+            <!-- 아이디 입력 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-user"></i>
+                    아이디
+                </label>
+                <input type="text" name="user_id" required autocomplete="username"
+                       placeholder="👤 아이디를 입력하세요"
+                       class="form-input">
+            </div>
+
+            <!-- 비밀번호 입력 -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-lock"></i>
+                    비밀번호
+                </label>
+                <div class="password-input-group">
+                    <input type="password" name="password" id="password" required autocomplete="current-password"
+                           placeholder="🔒 비밀번호를 입력하세요"
+                           class="form-input">
+                    <button type="button" onclick="togglePassword()" class="password-toggle">
+                        <i class="fas fa-eye" id="password-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 로그인 상태 유지 -->
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember_me" name="remember_me" class="checkbox-custom">
+                    <label for="remember_me" class="checkbox-label">
+                        💾 로그인 상태 유지
+                    </label>
+                </div>
+            </div>
+
+            <!-- 로그인 버튼 -->
+            <button type="submit" class="btn-primary-custom" style="width: 100%; margin-top: 10px;">
+                <i class="fas fa-sign-in-alt"></i>
+                로그인
+            </button>
+        </form>
+
+        <!-- 추가 링크들 -->
+        <div class="link-section">
+            <div style="margin-bottom: 20px;">
+                <a href="{{ url_for('main.forgot_password') }}" 
+                   style="color: #667eea; text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
+                    <i class="fas fa-question-circle" style="margin-right: 5px;"></i>
+                    비밀번호를 잊으셨나요?
+                </a>
+            </div>
+
+            <div class="link-card">
+                <p>아직 계정이 없으신가요?</p>
+                <a href="{{ url_for('main.register') }}" class="btn-success-custom">
+                    <i class="fas fa-user-plus"></i>
+                    회원가입하기
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// 비밀번호 표시/숨김 토글
+function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const passwordEye = document.getElementById('password-eye');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordEye.classList.remove('fa-eye');
+        passwordEye.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        passwordEye.classList.remove('fa-eye-slash');
+        passwordEye.classList.add('fa-eye');
+    }
+}
+
+// 폼 제출 전 유효성 검사
+document.querySelector('form').addEventListener('submit', function(e) {
+    const userId = document.querySelector('input[name="user_id"]').value.trim();
+    const password = document.querySelector('input[name="password"]').value.trim();
+    
+    if (!userId || !password) {
+        e.preventDefault();
+        alert('아이디와 비밀번호를 모두 입력해주세요! 🔐');
+        return;
+    }
+    
+    if (userId.length < 3) {
+        e.preventDefault();
+        alert('아이디는 3자 이상 입력해주세요! 👤');
+        return;
+    }
+    
+    if (password.length < 4) {
+        e.preventDefault();
+        alert('비밀번호는 4자 이상 입력해주세요! 🔒');
+        return;
+    }
+});
+
+// 엔터키로 폼 제출
+document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        document.querySelector('form').dispatchEvent(new Event('submit'));
+    }
+});
+</script>
+{% endblock %}

@@ -1,26 +1,312 @@
 <!-- filepath: c:\KNOU_HJH\softwareContest\main\templates\post_detail.html -->
-{% extends "base.html" %} {% block title %}{{ post.title }}{% endblock %} {% block content %}
-<section>
-    <h1>{{ post.title }}</h1>
-    <p>작성자: {{ post.author.username }}</p>
-    <p>작성일: {{ post.created_at }}</p>
-    <hr />
-    <p>{{ post.content }}</p>
-    {% if post.board_type == '중고 게시판' %}
-    <p>상태: {{ post.status }}</p>
-    <p>가격: {{ post.price }}원</p>
-    {% endif %}
-    <hr />
-    <h2>댓글</h2>
-    <ul>
-        {% for comment in post.comments %}
-        <li><strong>{{ comment.author.username }}</strong>: {{ comment.content }}</li>
-        {% endfor %}
-    </ul>
-    <form method="POST" action="{{ url_for('main.add_comment', post_id=post.id) }}">
-        <textarea name="content" rows="3" required></textarea>
-        <br />
-        <button type="submit">댓글 작성</button>
-    </form>
-</section>
+{% extends "new_base_fixed.html" %} {% block title %}{{ post.title }}{% endblock %} {% block content %}
+<div class="main-content">
+    <div class="post-detail-container">
+        <!-- 게시글 헤더 -->
+        <div class="post-header">
+            <h1 class="post-title">{{ post.title }}</h1>
+            <div class="post-meta">
+                <div class="author-info">
+                    <i class="fas fa-user me-2"></i>
+                    <span>{{ post.author.username if post.author else '익명' }}</span>
+                </div>
+                <div class="post-date">
+                    <i class="fas fa-clock me-2"></i>
+                    <span>{{ post.created_at.strftime('%Y.%m.%d %H:%M') }}</span>
+                </div>
+                {% if post.board_type %}
+                <div class="board-type">
+                    <span class="badge bg-primary">{{ post.board_type }}</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- 게시글 내용 -->
+        <div class="post-content">
+            <div class="content-body">{{ post.content|nl2br|safe }}</div>
+
+            {% if post.board_type == '중고 게시판' %}
+            <div class="market-info">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-tag me-2"></i>
+                        <span class="label">상태:</span>
+                        <span class="value">{{ post.status or '판매중' }}</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-won-sign me-2"></i>
+                        <span class="label">가격:</span>
+                        <span class="value price">{{ "{:,}".format(post.price) }}원</span>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- 댓글 섹션 -->
+        <div class="comments-section">
+            <div class="comments-header">
+                <h3><i class="fas fa-comments me-2"></i>댓글 ({{ post.comments.count() if post.comments else 0 }})</h3>
+            </div>
+
+            <!-- 댓글 목록 -->
+            <div class="comments-list">
+                {% if post.comments %} {% for comment in post.comments %}
+                <div class="comment-item">
+                    <div class="comment-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <strong class="comment-author">{{ comment.author.username if comment.author else '익명' }}</strong>
+                            <small class="comment-date">{{ comment.created_at.strftime('%Y.%m.%d %H:%M') }}</small>
+                        </div>
+                        <p class="comment-text">{{ comment.content }}</p>
+                    </div>
+                </div>
+                {% endfor %} {% else %}
+                <div class="no-comments">
+                    <i class="fas fa-comment-slash fa-2x text-muted mb-2"></i>
+                    <p>아직 댓글이 없습니다. 첫 댓글을 작성해보세요!</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- 댓글 작성 폼 -->
+            <div class="comment-form">
+                <form method="POST" action="{{ url_for('main.add_comment', post_id=post.id) }}">
+                    <div class="form-group">
+                        <textarea name="content" class="form-control comment-textarea" rows="3" placeholder="댓글을 입력하세요..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane me-2"></i>댓글 작성</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 액션 버튼들 -->
+        <div class="post-actions">
+            <a href="{{ url_for('main.board', board_type=post.board_type) }}" class="btn btn-outline-secondary"> <i class="fas fa-list me-2"></i>목록으로 </a>
+            {% if current_user.is_authenticated and current_user.per_id == post.author_id %}
+            <button class="btn btn-outline-warning"><i class="fas fa-edit me-2"></i>수정</button>
+            <button class="btn btn-outline-danger"><i class="fas fa-trash me-2"></i>삭제</button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .post-detail-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1.5rem;
+    }
+
+    .post-title {
+        color: #333;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .post-meta {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        color: #666;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+    }
+
+    .author-info,
+    .post-date {
+        display: flex;
+        align-items: center;
+    }
+
+    .post-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1.5rem;
+    }
+
+    .content-body {
+        line-height: 1.8;
+        color: #333;
+        margin-bottom: 1.5rem;
+    }
+
+    .market-info {
+        border-top: 1px solid #eee;
+        padding-top: 1.5rem;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+    }
+
+    .info-item .label {
+        font-weight: 500;
+    }
+
+    .info-item .value.price {
+        font-weight: bold;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+    }
+
+    .comments-section {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+
+    .comments-header {
+        padding: 1.5rem;
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .comments-header h3 {
+        margin: 0;
+        color: #333;
+    }
+
+    .comments-list {
+        padding: 1rem;
+    }
+
+    .comment-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .comment-item:last-child {
+        border-bottom: none;
+    }
+
+    .comment-avatar {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .comment-content {
+        flex: 1;
+    }
+
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .comment-author {
+        color: #333;
+    }
+
+    .comment-date {
+        color: #888;
+    }
+
+    .comment-text {
+        color: #555;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .no-comments {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: #888;
+    }
+
+    .comment-form {
+        padding: 1.5rem;
+        background: #f8f9fa;
+    }
+
+    .comment-textarea {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 0.75rem;
+        resize: vertical;
+        font-family: inherit;
+    }
+
+    .comment-textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    .form-actions {
+        margin-top: 1rem;
+        text-align: right;
+    }
+
+    .post-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+        .post-meta {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .comment-item {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .comment-avatar {
+            align-self: flex-start;
+        }
+
+        .post-actions {
+            flex-direction: column;
+        }
+    }
+</style>
 {% endblock %}

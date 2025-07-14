@@ -1,127 +1,242 @@
-{% extends "base.html" %} {% block title %}메인 페이지{% endblock %} {% block content %}
-<html lang="ko">
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="main">
-        <div class="link"><div class="text-wrapper">중고 마켓</div></div>
-        <div class="list">
-          <div class="item">
-            <div class="div-wrapper"><div class="div">전체</div></div>
-          </div>
-          <div class="link-wrapper">
-            <div class="div-wrapper"><div class="text-wrapper-2">중고</div></div>
-          </div>
-          <div class="item-2">
-            <div class="div-wrapper"><div class="text-wrapper-2">새책</div></div>
-          </div>
-          <div class="item-3">
-            <div class="link-2"><div class="text-wrapper-3">인증/후기</div></div>
-          </div>
-        </div>
-        <div class="overlap">
-          <div class="table">
-            <div class="header-row">
-              <div class="cell">번호</div>
-              <div class="cell-link"><div class="text-wrapper-4">제목</div></div>
-            </div>
-          </div>
-          <div class="list-2">
-            <div class="item-link">
-              <div class="div-wrapper-2"><div class="text-wrapper-5">유비쿼터스 컴퓨팅 개론</div></div>
-              <div class="text-wrapper-6">20%</div>
-              <div class="text-wrapper-7">12,800</div>
-              <div class="overlap-group"><div class="overlay"></div></div>
-            </div>
-            <div class="item-link-2">
-              <div class="overlay-wrapper"><div class="overlay"></div></div>
-              <div class="div-wrapper-2">
-                <div class="overlap-group-2">
-                  <div class="text-wrapper-8">HTML5 웹 프로그래밍</div>
-                  <div class="text-wrapper-9">NEW</div>
-                </div>
-              </div>
-              <div class="text-wrapper-10">25,900</div>
-            </div>
-            <div class="item-link-3">
-              <div class="div-wrapper-2"><div class="text-wrapper-11">생명과 과학</div></div>
-              <div class="text-wrapper-10">29,000</div>
-              <div class="overlap-2"><div class="overlay"></div></div>
-            </div>
-            <div class="item-link-4">
-              <div class="div-wrapper-2"><div class="text-wrapper-12">사진의 이해</div></div>
-              <div class="text-wrapper-6">82%</div>
-              <div class="text-wrapper-13">990</div>
-              <div class="overlap-3"><div class="overlay"></div></div>
-            </div>
-            <div class="item-link-5">
-              <div class="overlap-4"><div class="overlay"></div></div>
-              <div class="div-wrapper-2">
-                <div class="overlap-group-3">
-                  <div class="text-wrapper-14">세계의 정치와 경제</div>
-                  <div class="text-wrapper-15">NEW</div>
-                </div>
-              </div>
-              <div class="text-wrapper-6">10%</div>
-              <div class="text-wrapper-7">10,710</div>
-            </div>
-            <div class="item-link-6">
-              <div class="overlap-5"><div class="overlay"></div></div>
-              <div class="div-wrapper-2">
-                <div class="overlap-group-4">
-                  <div class="text-wrapper-16">원격대학교육의 이해</div>
-                  <div class="text-wrapper-17">NEW</div>
-                </div>
-              </div>
-              <div class="text-wrapper-6">16%</div>
-              <div class="text-wrapper-7">11,700</div>
-            </div>
-            <div class="item-link-7">
-              <div class="div-wrapper-2"><div class="text-wrapper-18">이산수학</div></div>
-              <div class="text-wrapper-10">35,000</div>
-              <div class="overlap-6"><div class="overlay"></div></div>
-            </div>
-            <div class="item-link-8">
-              <div class="div-wrapper-2"><div class="text-wrapper-19">컴퓨터의 이해</div></div>
-              <div class="text-wrapper-6">24%</div>
-              <div class="text-wrapper-20">9,900</div>
-              <div class="overlap-7"><div class="overlay"></div></div>
-            </div>
-            <div class="item-link-9">
-              <div class="overlap-8"><div class="overlay"></div></div>
-              <div class="div-wrapper-2">
-                <div class="overlap-group-5">
-                  <div class="text-wrapper-21">한국사의 이해</div>
-                  <div class="text-wrapper-22">NEW</div>
-                </div>
-              </div>
-              <div class="text-wrapper-10">26,000</div>
-            </div>
-          </div>
-          <div class="link-3"><div class="text-wrapper-23">검색</div></div>
-          <div class="link-4"><div class="text-wrapper-24">이전</div></div>
-          <div class="link-5"><div class="text-wrapper-25">1</div></div>
-          <div class="link-6"><div class="text-wrapper-26">2</div></div>
-          <div class="link-7"><div class="text-wrapper-26">3</div></div>
-          <div class="link-8"><div class="text-wrapper-26">4</div></div>
-          <div class="link-9"><div class="text-wrapper-26">5</div></div>
-          <div class="link-10"><div class="text-wrapper-26">6</div></div>
-          <div class="link-11"><div class="text-wrapper-27">7</div></div>
-          <div class="link-12"><div class="text-wrapper-26">8</div></div>
-          <div class="link-13"><div class="text-wrapper-26">9</div></div>
-          <div class="link-14"><div class="text-wrapper-28">10</div></div>
-          <div class="text-wrapper-29">...</div>
-          <div class="link-15"><div class="text-wrapper-30">17995</div></div>
-          <div class="link-16"><div class="text-wrapper-31">다음</div></div>
-        </div>
-      </div>
+{% extends "new_base_fixed.html" %} {% block title %}중고 마켓{% endblock %} {% block content %}
+<div class="main-content">
+    <div class="page-header">
+        <h1><i class="fas fa-store me-2"></i>중고 마켓</h1>
+        <p class="page-description">방통대 학생들을 위한 중고 거래 플랫폼</p>
     </div>
-  </body>
-</html>
+
+    <!-- 카테고리 필터 -->
+    <div class="category-filter mb-4">
+        <div class="filter-buttons">
+            <button class="filter-btn active">전체</button>
+            <button class="filter-btn">교재</button>
+            <button class="filter-btn">전자기기</button>
+            <button class="filter-btn">생활용품</button>
+            <button class="filter-btn">기타</button>
+        </div>
+    </div>
+
+    <!-- 상품 그리드 -->
+    <div class="market-grid">
+        <div class="product-card">
+            <div class="product-image">
+                <i class="fas fa-book fa-3x text-primary"></i>
+            </div>
+            <div class="product-info">
+                <h5 class="product-title">컴퓨터과학개론 교재</h5>
+                <p class="product-price">25,000원</p>
+                <p class="product-location">서울 강남구</p>
+                <div class="product-meta">
+                    <span class="badge bg-success">판매중</span>
+                    <small class="text-muted">2시간 전</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <i class="fas fa-laptop fa-3x text-info"></i>
+            </div>
+            <div class="product-info">
+                <h5 class="product-title">노트북 - 레노버 씽크패드</h5>
+                <p class="product-price">450,000원</p>
+                <p class="product-location">경기 수원시</p>
+                <div class="product-meta">
+                    <span class="badge bg-warning">예약중</span>
+                    <small class="text-muted">1일 전</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <i class="fas fa-calculator fa-3x text-warning"></i>
+            </div>
+            <div class="product-info">
+                <h5 class="product-title">공학용 계산기</h5>
+                <p class="product-price">15,000원</p>
+                <p class="product-location">부산 해운대구</p>
+                <div class="product-meta">
+                    <span class="badge bg-success">판매중</span>
+                    <small class="text-muted">3일 전</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <i class="fas fa-headphones fa-3x text-danger"></i>
+            </div>
+            <div class="product-info">
+                <h5 class="product-title">무선 헤드폰</h5>
+                <p class="product-price">80,000원</p>
+                <p class="product-location">대구 수성구</p>
+                <div class="product-meta">
+                    <span class="badge bg-secondary">판매완료</span>
+                    <small class="text-muted">1주 전</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <i class="fas fa-book-open fa-3x text-success"></i>
+            </div>
+            <div class="product-info">
+                <h5 class="product-title">자료구조 교재</h5>
+                <p class="product-price">20,000원</p>
+                <p class="product-location">인천 남동구</p>
+                <div class="product-meta">
+                    <span class="badge bg-success">판매중</span>
+                    <small class="text-muted">5일 전</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <i class="fas fa-keyboard fa-3x text-dark"></i>
+            </div>
+            <div class="product-info">
+                <h5 class="product-title">기계식 키보드</h5>
+                <p class="product-price">120,000원</p>
+                <p class="product-location">서울 마포구</p>
+                <div class="product-meta">
+                    <span class="badge bg-warning">예약중</span>
+                    <small class="text-muted">1주 전</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 판매하기 버튼 -->
+    <div class="floating-action">
+        <button class="btn btn-primary btn-lg rounded-circle">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 15px;
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    .category-filter {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ddd;
+        background: white;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+
+    .market-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+        height: 200px;
+        background: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-info {
+        padding: 1rem;
+    }
+
+    .product-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .product-price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 0.25rem;
+    }
+
+    .product-location {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .product-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .floating-action {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 1000;
+    }
+
+    .floating-action .btn {
+        width: 60px;
+        height: 60px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .market-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .filter-buttons {
+            justify-content: center;
+        }
+    }
+</style>
 {% endblock %}

@@ -1,0 +1,435 @@
+{% extends "new_base_fixed.html" %} {% block title %}보안 센터{% endblock %} {% block content %}
+<div class="container-fluid px-4">
+    <div class="page-header mb-4">
+        <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-shield-alt me-2"></i>보안 센터</h1>
+        <p class="text-muted">계정 보안 설정 및 관리</p>
+    </div>
+
+    <!-- 보안 상태 개요 -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="d-flex align-items-center">
+                                <div class="security-status-icon me-3">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                </div>
+                                <div>
+                                    <h4 class="mb-1">보안 상태: 안전</h4>
+                                    <p class="text-muted mb-0">계정이 안전하게 보호되고 있습니다. 정기적인 보안 점검을 권장합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-end">
+                            <div class="security-score-display">
+                                <div class="score-circle">
+                                    <span class="score">85</span>
+                                    <small>/100</small>
+                                </div>
+                                <small class="text-muted d-block mt-2">보안 점수</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 보안 설정 메뉴 -->
+    <div class="row mb-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="icon-circle bg-primary mb-3 mx-auto">
+                        <i class="fas fa-key text-white"></i>
+                    </div>
+                    <h5 class="card-title">비밀번호 변경</h5>
+                    <p class="card-text text-muted">계정 비밀번호를 안전하게 변경하세요</p>
+                    <button class="btn btn-outline-primary" onclick="openPasswordModal()">변경하기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="icon-circle bg-success mb-3 mx-auto">
+                        <i class="fas fa-mobile-alt text-white"></i>
+                    </div>
+                    <h5 class="card-title">2단계 인증</h5>
+                    <p class="card-text text-muted">휴대폰 인증으로 보안을 강화하세요</p>
+                    <button class="btn btn-outline-success">설정하기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="icon-circle bg-warning mb-3 mx-auto">
+                        <i class="fas fa-history text-white"></i>
+                    </div>
+                    <h5 class="card-title">로그인 기록</h5>
+                    <p class="card-text text-muted">최근 로그인 활동을 확인하세요</p>
+                    <button class="btn btn-outline-warning">확인하기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="icon-circle bg-info mb-3 mx-auto">
+                        <i class="fas fa-envelope text-white"></i>
+                    </div>
+                    <h5 class="card-title">이메일 인증</h5>
+                    <p class="card-text text-muted">이메일 주소를 인증하여 보안을 향상시키세요</p>
+                    <button class="btn btn-outline-info">인증하기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="icon-circle bg-danger mb-3 mx-auto">
+                        <i class="fas fa-ban text-white"></i>
+                    </div>
+                    <h5 class="card-title">계정 잠금</h5>
+                    <p class="card-text text-muted">의심스러운 활동이 감지될 때 계정을 보호합니다</p>
+                    <button class="btn btn-outline-danger">설정하기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="icon-circle bg-secondary mb-3 mx-auto">
+                        <i class="fas fa-download text-white"></i>
+                    </div>
+                    <h5 class="card-title">데이터 다운로드</h5>
+                    <p class="card-text text-muted">개인 데이터를 안전하게 다운로드하세요</p>
+                    <button class="btn btn-outline-secondary">다운로드</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 보안 팁 -->
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0"><i class="fas fa-lightbulb me-2 text-warning"></i>보안 팁</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-lock text-primary"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h6>강력한 비밀번호</h6>
+                                    <p class="text-muted small mb-0">8자 이상, 대소문자, 숫자, 특수문자 조합</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-shield-alt text-success"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h6>정기적 업데이트</h6>
+                                    <p class="text-muted small mb-0">비밀번호를 주기적으로 변경하세요</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-eye-slash text-warning"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h6>공용 컴퓨터 주의</h6>
+                                    <p class="text-muted small mb-0">로그아웃을 잊지 마세요</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-wifi text-danger"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h6>공용 Wi-Fi 주의</h6>
+                                    <p class="text-muted small mb-0">중요한 정보 입력을 피하세요</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0"><i class="fas fa-clock me-2 text-info"></i>최근 활동</h5>
+                </div>
+                <div class="card-body">
+                    <div class="activity-timeline">
+                        <div class="activity-item">
+                            <div class="activity-icon bg-success">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="mb-0">로그인</p>
+                                <small class="text-muted">2시간 전</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon bg-primary">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="mb-0">비밀번호 변경</p>
+                                <small class="text-muted">3일 전</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon bg-warning">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="mb-0">2단계 인증 설정</p>
+                                <small class="text-muted">1주 전</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 비밀번호 변경 모달 -->
+<div class="modal fade" id="passwordModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">비밀번호 변경</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">현재 비밀번호</label>
+                        <input type="password" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">새 비밀번호</label>
+                        <input type="password" class="form-control" id="newPassword" />
+                        <div class="password-strength mt-2">
+                            <div class="progress" style="height: 5px">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <small class="text-muted">비밀번호 강도: <span id="strengthText">없음</span></small>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">비밀번호 확인</label>
+                        <input type="password" class="form-control" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary">변경하기</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block extra_js %}
+<script>
+    function openPasswordModal() {
+        const modal = new bootstrap.Modal(document.getElementById('passwordModal'));
+        modal.show();
+    }
+
+    // 비밀번호 강도 확인
+    document.addEventListener('DOMContentLoaded', function () {
+        const passwordInput = document.getElementById('newPassword');
+        const progressBar = document.querySelector('.progress-bar');
+        const strengthText = document.getElementById('strengthText');
+
+        if (passwordInput) {
+            passwordInput.addEventListener('input', function () {
+                const password = this.value;
+                const strength = calculatePasswordStrength(password);
+                updateStrengthDisplay(strength);
+            });
+        }
+    });
+
+    function calculatePasswordStrength(password) {
+        let score = 0;
+
+        if (password.length >= 8) score += 25;
+        if (password.match(/[a-z]/)) score += 25;
+        if (password.match(/[A-Z]/)) score += 25;
+        if (password.match(/[0-9]/)) score += 15;
+        if (password.match(/[^a-zA-Z0-9]/)) score += 10;
+
+        return Math.min(score, 100);
+    }
+
+    function updateStrengthDisplay(strength) {
+        const progressBar = document.querySelector('.progress-bar');
+        const strengthText = document.getElementById('strengthText');
+
+        progressBar.style.width = strength + '%';
+
+        if (strength < 30) {
+            progressBar.className = 'progress-bar bg-danger';
+            strengthText.textContent = '약함';
+        } else if (strength < 60) {
+            progressBar.className = 'progress-bar bg-warning';
+            strengthText.textContent = '보통';
+        } else if (strength < 80) {
+            progressBar.className = 'progress-bar bg-info';
+            strengthText.textContent = '좋음';
+        } else {
+            progressBar.className = 'progress-bar bg-success';
+            strengthText.textContent = '매우 강함';
+        }
+    }
+</script>
+
+<style>
+    /* 보안 상태 아이콘 */
+    .security-status-icon {
+        font-size: 2rem;
+    }
+
+    /* 보안 점수 표시 */
+    .security-score-display {
+        text-align: center;
+    }
+
+    .score-circle {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #28a745, #20c997);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin: 0 auto;
+    }
+
+    .score {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    /* 아이콘 원형 배경 */
+    .icon-circle {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    /* 보안 팁 아이템 */
+    .tip-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .tip-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .tip-content h6 {
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
+    }
+
+    /* 활동 타임라인 */
+    .activity-timeline {
+        position: relative;
+    }
+
+    .activity-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+
+    .activity-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .activity-icon {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-right: 1rem;
+        flex-shrink: 0;
+        font-size: 0.8rem;
+    }
+
+    .activity-content {
+        flex-grow: 1;
+    }
+
+    .activity-content p {
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
+    }
+
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+        .container-fluid {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .security-score-display {
+            margin-top: 1rem;
+        }
+
+        .tip-item {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .tip-icon {
+            margin-right: 0;
+    }
+</style>
+{% endblock %}

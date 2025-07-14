@@ -40,6 +40,15 @@ login_manager.login_view = 'main.login'  # 로그인 페이지 경로 설정
 # Flask-Moment 초기화
 moment = Moment(app)
 
+# 템플릿 필터 추가
+@app.template_filter('nl2br')
+def nl2br_filter(text):
+    """줄바꿈 문자를 <br> 태그로 변환"""
+    if text is None:
+        return ''
+    import re
+    return re.sub(r'\n', '<br>', str(text))
+
 # 사용자 로드 함수
 @login_manager.user_loader
 def load_user(user_id):
